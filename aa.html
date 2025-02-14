@@ -1,1 +1,2178 @@
-aaa
+<?xml version="1.0" encoding="utf-8"?>
+<FDL version="1.5">
+  <TypeDefinition url="..\..\default_typedef.xml"/>
+  <Form domainid="CRIL000018" id="CRIEXE0012" onload="CRIEXE0011_OnLoadCompleted" titletext="논문 상세화면" left="0" top="0" width="1148" height="848" scrollbars="none">
+    <Layouts>
+      <Layout>
+        <Button id="btn_mark_F" taborder="94" onclick="Button_toggle_onclick" left="0" top="2" width="24" height="24" style="background:#f6f3f2ff URL('images_CRI::bookmark.png') stretch;" visible="false"/>
+        <Button id="btn_mark_T" taborder="93" left="0" top="2" width="24" height="24" style="background:#f6f3f2ff URL('images_CRI::bookmark2.png') stretch;" onclick="Button_toggle_onclick" visible="false"/>
+        <Static id="Static02" taborder="1" cssclass="sta_WF_schLabel" left="0" top="39" height="136" onclick="Static02_onclick" width="1128"/>
+        <Div id="dv_TopIcon" taborder="0" tabstop="false" text="Div0" userdata="MOVE" top="0" width="770" height="28" right="114" scrollbars="none" style="background:transparent;">
+          <Layouts>
+            <Layout>
+              <Button domainid="ZCMB000007" id="btn_List" onclick="ufn_List" taborder="6" text="목록" userdata="search" left="706" top="0" width="60" height="24" cssclass="btn_WF_Custom2"/>
+              <Button domainid="ZCMB000012" id="btn_Upd" taborder="4" text="수정" userdata="update" left="580" top="0" width="60" height="24" cssclass="btn_WF_Modify" onclick="dv_TopIcon_btn_Upd_onclick" enable="true" visible="false"/>
+              <Button domainid="ZCMB000008" id="btn_delete" onclick="ufn_Delete" taborder="5" text="삭제" userdata="delete" left="643" top="0" width="60" height="24" cssclass="btn_WF_Delete" enable="true" visible="false"/>
+              <Button id="btn_share" taborder="3" text="논문공유" cssclass="btn_WF_Custom2" left="488" top="0" width="89" height="24" onclick="dv_TopIcon_btn_share_onclick" userdata="search"/>
+              <Button id="btn_his" taborder="2" text="이력보기" cssclass="btn_WF_Custom2" left="396" top="0" width="89" height="24" userdata="search" visible="false" onclick="dv_TopIcon_btn_his_onclick"/>
+              <Button id="btn_apprHis" taborder="1" text="결재이력" cssclass="btn_WF_Custom2" left="120" top="0" width="89" height="24" onclick="dv_TopIcon_btn_apprHis_onclick" userdata="search" visible="false" domainid="CRIL000310"/>
+              <Button id="btn_cancelApp" taborder="0" text="상신취소" cssclass="btn_WF_Custom2" left="29" top="0" width="89" height="24" enable="true" onclick="dv_TopIcon_btn_cancelApp_onclick" userdata="update" visible="false"/>
+              <Button id="btn_appr" taborder="7" text="결재상신" onclick="dv_TopIcon_btn_appr_onclick" cssclass="btn_WF_Custom2" visible="false" left="29" top="0" width="89" height="24" userdata="insert" domainid="CRIB000109" enable="true"/>
+              <Button id="btn_result" taborder="8" text="결과조회" cssclass="btn_WF_Custom2" visible="false" left="211" top="0" width="89" height="24" userdata="insert" domainid="" onclick="dv_TopIcon_btn_result_onclick"/>
+              <Button id="btn_revw" taborder="9" text="논문리뷰" cssclass="btn_WF_Custom2" left="304" top="0" width="89" height="24" userdata="insert" domainid="" onclick="dv_TopIcon_btn_revw_onclick"/>
+            </Layout>
+          </Layouts>
+        </Div>
+        <Edit id="edt_key_word" taborder="18" left="107" top="130" height="20" width="1017" enable="false"/>
+        <Static domainid="CRIL000003" id="Static4" text="키워드" left="4" top="130" width="100" height="20" cssclass="sta_WF_schTitle" taborder="33"/>
+        <Static domainid="CRIL000005" id="Static1" text="발표분야" left="322" top="64" width="100" height="20" cssclass="sta_WF_schTitle" taborder="34"/>
+        <Static domainid="CRIL000007" id="Static0" text="논문명" left="4" top="86" width="100" height="20" cssclass="sta_WF_schTitle" taborder="35"/>
+        <Edit binddataset="ds_UserDesc" column="ITG_USER_ID" enable="FALSE" id="edt_announ_user_id" readonly="true" taborder="13" left="107" top="108" width="76" height="20" style="color:#333333ff;cursor:default;"/>
+        <Edit enable="true" id="edt_itg_orgNm_sup" readonly="true" taborder="16" left="741" top="108" width="156" height="20" style="color:#333333ff;cursor:default;"/>
+        <Edit binddataset="ds_UserDesc" column="ITG_USER_NM" enable="FALSE" id="edt_announ_user_nm" readonly="true" taborder="14" left="185" top="108" width="134" height="20" style="color:#333333ff;cursor:default;"/>
+        <Static domainid="CRIL000004" id="Static9" text="논문번호" left="322" top="42" width="100" height="20" cssclass="sta_WF_schTitle" taborder="36"/>
+        <Static domainid="CRIL000015" id="Static6" text="등록일자" left="638" top="42" width="100" height="20" cssclass="sta_WF_schTitle" taborder="37"/>
+        <Static domainid="CRIL000008" id="Static3" text="발표자" left="4" top="108" width="100" height="20" cssclass="sta_WF_schTitle" taborder="38"/>
+        <Static domainid="CRIL000009" id="Static2" text="직위" left="322" top="108" width="100" height="20" cssclass="sta_WF_schTitle" taborder="39"/>
+        <Edit binddataset="ds_UserDesc" column="USER_POA_NM" enable="FALSE" id="edt_poa_nm" readonly="true" taborder="15" top="108" height="20" left="425" width="210"/>
+        <Edit enable="FALSE" id="edt_paper_no" readonly="true" taborder="3" left="425" top="42" width="140" height="20" style="color:#999999ff;"/>
+        <Edit id="edt_paper_nm" taborder="10" left="107" top="86" height="20" width="528" enable="false"/>
+        <Combo codecolumn="ANNOUN_AREA_CD" datacolumn="ANNOUN_AREA_NM" displayrowcount="5" id="cbo_annonce_area" index="0" innerdataset="ds_Ccal" onitemchanged="cbo_annonce_area_OnChanged" type="dropdown" taborder="8" left="531" top="64" width="104" height="20" enable="false"/>
+        <Static domainid="CRIL000240" id="st_Title" taborder="42" text="논문 상세조회" left="32" top="0" width="202" height="28" cssclass="sta_WF_Menutitle"/>
+        <Static domainid="CRIL000088" id="Static7" text="학술대회" left="4" top="64" width="100" height="20" cssclass="sta_WF_schTitle" taborder="40"/>
+        <Combo codecolumn="CONFERENCE" datacolumn="CONFERENCE_NM" displayrowcount="5" id="cbo_conference" index="0" innerdataset="ds_Conference" onitemchanged="cbo_conference_OnChanged" type="dropdown" taborder="7" left="107" top="64" width="212" height="20" enable="false"/>
+        <Div id="dv_IUpDown_2" ontimer="frm_IUpDown_OnTimer" taborder="26" text="Div0" left="0" top="480" height="126" scrollbars="none" right="20"/>
+        <Div id="dv_IUpDown_3" ontimer="frm_IUpDown_OnTimer" taborder="27" text="Div0" left="0" top="640" height="126" scrollbars="none" right="20"/>
+        <Div id="dv_IUpDown_6" ontimer="frm_IUpDown_OnTimer" taborder="28" text="Div0" left="0" top="802" height="126" scrollbars="none" right="20">
+          <Layouts>
+            <Layout/>
+          </Layouts>
+        </Div>
+        <Grid autoenter="select" autofittype="col" binddataset="ds_CpaaList" cellsizingtype="col" readonly="false" enable="true" fillareatype="none" headheight="26" id="grd_CpaaList" taborder="24" tabstop="true" autosizingtype="none" usecontextmenu="true" userdata="EXW" useselcolor="true" visible="true" wheelscrollrow="1" left="0" top="208" height="101" rowheight="24" selecttype="row" right="20">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="35"/>
+                <Column size="60"/>
+                <Column size="99"/>
+                <Column size="98"/>
+                <Column size="176"/>
+                <Column size="138"/>
+                <Column size="251"/>
+              </Columns>
+              <Rows>
+                <Row size="26" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="text" text="No" wordwrap="word" calendardisplaynulltext="CRIL000125"/>
+                <Cell col="1" text="직접입력" calendardisplaynulltext="CRIL000216"/>
+                <Cell col="2" displaytype="text" text="사번" wordwrap="word" calendardisplaynulltext="CRIL000016"/>
+                <Cell col="3" displaytype="text" text="성명" wordwrap="word" calendardisplaynulltext="CRIL000014"/>
+                <Cell col="4" displaytype="text" text="부서" wordwrap="word" calendardisplaynulltext="CRIL000217"/>
+                <Cell col="5" displaytype="text" text="직위" wordwrap="word" calendardisplaynulltext="CRIL000009"/>
+                <Cell col="6" displaytype="text" text="회사명" wordwrap="word" calendardisplaynulltext="CRIL000218"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="text" expr="expr:currow+1"/>
+                <Cell col="1" displaytype="checkbox" text="bind:IN_USER_YN"/>
+                <Cell col="2" displaytype="text" edittype="none" text="bind:ANNOUN_USER_ID"/>
+                <Cell col="3" displaytype="text" edittype="none" text="bind:ANNOUN_USER_NM"/>
+                <Cell col="4" displaytype="text" edittype="none" text="bind:ITG_ORG_NM"/>
+                <Cell col="5" displaytype="text" edittype="none" text="bind:USER_POA_NM"/>
+                <Cell col="6" displaytype="text" edittype="none" text="bind:ORG_CO_NM"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Image0" taborder="43" text="공동저자" left="0" top="184" width="260" height="22" cssclass="sta_WF_Subtitle" domainid="CRIL000215"/>
+        <Static domainid="CRIL000006" id="Static8" text="발표년도" left="4" top="42" width="100" height="20" cssclass="sta_WF_schTitle" taborder="41"/>
+        <Spin enable="false" id="sp_year" max="3000" min="1993" onchanged="sp_year_OnChanged" taborder="2" value="1993" left="107" top="42" width="212" height="20" style="align:center middle;"/>
+        <Static id="Image1" taborder="49" text="특허" left="4" top="320" width="260" height="22" cssclass="sta_WF_Subtitle" domainid="CRIL000219"/>
+        <Grid autoenter="select" autofittype="col" binddataset="ds_ApplyList" cellsizingtype="col" readonly="true" enable="true" fillareatype="none" headheight="26" id="grd_apply" onselectchanged="Grid0_OnCellPosChanged" taborder="25" tabstop="true" autosizingtype="none" usecontextmenu="true" userdata="EXW" useselcolor="true" visible="true" wheelscrollrow="1" left="0" top="344" height="101" rowheight="24" selecttype="row" right="20">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="28"/>
+                <Column size="176"/>
+                <Column size="251"/>
+              </Columns>
+              <Rows>
+                <Row size="26" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="text" text="No" wordwrap="word"/>
+                <Cell col="1" displaytype="text" text="제안번호" wordwrap="word" calendardisplaynulltext="CRIL000194"/>
+                <Cell col="2" displaytype="text" text="한국 특허번호" wordwrap="word" calendardisplaynulltext="CRIL000195"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="text" expr="expr:currow+1"/>
+                <Cell col="1" displaytype="normal" edittype="normal" editfilter="digit" style="align:left middle;" text="bind:SUGGEST_NO" editlimit="200" editlengthunit="utf8"/>
+                <Cell col="2" displaytype="normal" edittype="normal" editfilter="digit" style="align:left middle;" text="bind:K_SUGGEST_NO" editlimit="200" editlengthunit="utf8"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <Static id="Static03" taborder="53" text="6" visible="false" left="0" top="28" right="20" height="6" style="background:#ff000033;align:center middle;"/>
+        <Div id="dv_ComIcon" taborder="54" tabstop="false" url="com_Form::frm_CommonIcon.xfdl" text="Div0" top="0" right="20" width="93" height="28" scrollbars="none"/>
+        <Static id="Static16" taborder="56" left="638" top="108" width="100" height="20" domainid="CRIL000010" cssclass="sta_WF_schTitle" text="센터/팀"/>
+        <Edit id="edt_itg_orgNm" taborder="17" readonly="true" left="900" top="108" width="224" height="20" style="color:#333333ff;cursor:default;"/>
+        <Edit id="edt_itg_orgNm00" taborder="4" readonly="true" left="567" top="42" width="68" height="20" style="color:#999999ff;align:center middle;"/>
+        <Static id="Static11" taborder="61" text="열람수" cssclass="sta_WF_schTitle" left="4" top="152" width="100" height="20" domainid="CRIL000210"/>
+        <Edit id="edt_down" taborder="20" readonly="true" left="322" top="152" width="100" height="20" style="align:right middle;"/>
+        <Static id="Static13" taborder="64" text="다운로드수" cssclass="sta_WF_schTitle" left="220" top="152" width="100" height="20" domainid="CRIL000211"/>
+        <Edit id="edt_share" taborder="21" readonly="true" left="528" top="152" width="107" height="20" style="align:right middle;"/>
+        <Static id="Static18" taborder="66" text="공유수" cssclass="sta_WF_schTitle" left="425" top="152" width="100" height="20" domainid="CRIL000212"/>
+        <Edit id="edt_mark" taborder="22" readonly="true" left="741" top="152" width="157" height="20" style="align:right middle;"/>
+        <Static id="Static19" taborder="68" text="북마크수" cssclass="sta_WF_schTitle" left="638" top="152" width="100" height="20" domainid="CRIL000213"/>
+        <Static id="Static21" taborder="70" text="리뷰수" cssclass="sta_WF_schTitle" left="901" top="152" width="100" height="20" domainid="CRIL000214"/>
+        <Edit id="edt_revw" taborder="23" readonly="true" left="1003" top="152" width="121" height="20" style="align:right middle;"/>
+        <Static id="Static22" taborder="73" text="결재상태" cssclass="sta_WF_schTitle" left="900" top="42" width="100" height="20" domainid="CRIL000209"/>
+        <Edit id="edt_appr_state" taborder="6" readonly="true" left="1003" top="42" width="121" height="20"/>
+        <Static id="Static23" taborder="75" text="논문구분" cssclass="sta_WF_schTitle" left="638" top="64" width="100" height="20" domainid="CRIL000047"/>
+        <Radio id="ra_paperGbn" taborder="9" left="748" top="65" height="18" width="394" innerdataset="@ds_ComCd_CRI0001" codecolumn="COM_CD" datacolumn="COM_CD_NM" direction="vertical" columncount="2" value="01" onitemchanged="ra_paperGbn_onitemchanged" enable="false"/>
+        <Static id="st_comp" taborder="77" text="회사" cssclass="sta_WF_schTitle" left="638" top="86" width="100" height="20" domainid="CRIL000107" visible="false"/>
+        <Edit id="edt_comp" taborder="11" readonly="true" left="741" top="86" width="156" height="20" binddataset="ds_UserDesc" column="USER_POA_NM" visible="false"/>
+        <CheckBox id="chk_dir" taborder="12" text="직접입력" left="906" top="86" height="19" width="106" visible="false" enable="false"/>
+        <Calendar id="ca_regist_ymd" taborder="5" tabstop="false" readonly="true" dateformat="yyyy-MM-dd" left="741" top="42" width="156" height="20" style="color:#999999ff;align:center middle;"/>
+        <Static id="Image02" taborder="81" text="초록" cssclass="sta_WF_Subtitle" left="4" top="456" width="260" height="22" domainid="CRIL000011"/>
+        <Static id="Image03" taborder="82" text="논문" cssclass="sta_WF_Subtitle" left="4" top="616" width="260" height="22" domainid="CRIL000012"/>
+        <Static id="Image04" taborder="83" text="발표논문" cssclass="sta_WF_Subtitle" left="4" top="776" width="260" height="22" domainid="CRIL000220"/>
+        <Edit id="edt_open" taborder="19" readonly="true" left="107" top="152" width="110" height="20" style="color:#333333ff;align:right middle;"/>
+        <Static id="Image05" taborder="29" text="리뷰등록" cssclass="sta_WF_Subtitle" left="4" top="936" width="260" height="22" domainid="" visible="false"/>
+        <TextArea id="ta_revw" taborder="30" left="4" top="969" right="91" height="51" lengthunit="utf8" maxlength="2000" visible="false"/>
+        <Button id="btn_revw" taborder="31" text="등록" top="968" right="20" height="51" cssclass="btn_WF_Inline" width="69" onclick="btn_revw_onclick" visible="false"/>
+        <Grid id="grd_revw" taborder="32" binddataset="ds_revw" wheelscrollrow="1" autoenter="select" useinputpanel="false" cellsizingtype="col" autofittype="col" left="4" top="1024" right="20" height="268" headheight="26" userdata="EXW" rowheight="24" extendsizetype="row" oncellclick="grd_revw_oncellclick" visible="false">
+          <Formats>
+            <Format id="default">
+              <Columns>
+                <Column size="35"/>
+                <Column size="69"/>
+                <Column size="100"/>
+                <Column size="130"/>
+                <Column size="698"/>
+                <Column size="100"/>
+                <Column size="60"/>
+                <Column size="60"/>
+              </Columns>
+              <Rows>
+                <Row size="26" band="head"/>
+                <Row size="24"/>
+              </Rows>
+              <Band id="head">
+                <Cell displaytype="text" text="No" wordwrap="word" calendardisplaynulltext="CRIL000125"/>
+                <Cell col="1" displaytype="text" text="수정 버전" wordwrap="word" calendardisplaynulltext="CRIL000252"/>
+                <Cell col="2" displaytype="text" text="작성자" wordwrap="word"/>
+                <Cell col="3" displaytype="text" text="부서" wordwrap="word" calendardisplaynulltext="CRIL000217"/>
+                <Cell col="4" displaytype="text" text="리뷰내용" wordwrap="word"/>
+                <Cell col="5" displaytype="text" text="등록일자" wordwrap="word"/>
+                <Cell col="6" displaytype="text" text="수정" wordwrap="word"/>
+                <Cell col="7" displaytype="text" text="삭제" wordwrap="word"/>
+              </Band>
+              <Band id="body">
+                <Cell displaytype="text" expr="expr:currow+1"/>
+                <Cell col="1" displaytype="text" edittype="none" text="bind:MOD_SEQ"/>
+                <Cell col="2" displaytype="text" edittype="none" text="bind:REG_USER_NM"/>
+                <Cell col="3" displaytype="text" edittype="none" text="bind:REG_USER_ORG_NM"/>
+                <Cell col="4" displaytype="text" edittype="none" style="align:left middle;" text="bind:REVW_DESC"/>
+                <Cell col="5" displaytype="date" edittype="none" text="bind:REG_DATE" calendardisplaynulltype="nulltext"/>
+                <Cell col="6" displaytype="button" edittype="none" text="수정"/>
+                <Cell col="7" displaytype="button" edittype="none" text="삭제"/>
+              </Band>
+            </Format>
+          </Formats>
+        </Grid>
+        <PopupDiv id="popDiv_area" oncloseup="PopupUpItem_OnCloseUp" left="328" top="1072" width="311" height="124" scrollbars="none">
+          <Layouts>
+            <Layout>
+              <TextArea id="ta_text" taborder="0" lengthunit="utf8" maxlength="2000" left="0" top="0" right="0" bottom="0" readonly="true"/>
+            </Layout>
+          </Layouts>
+        </PopupDiv>
+        <Combo id="cbo_annonce_type" taborder="95" innerdataset="@ds_Ccal" codecolumn="ANNOUN_AREA_GR" datacolumn="ANNOUN_AREA_GN" displayrowcount="5" onitemchanged="cbo_annonce_area_OnChanged" enable="false" left="425" top="64" width="104" height="20"/>
+      </Layout>
+    </Layouts>
+    <Objects>
+      <Dataset id="ds_ComCd_CRI0001">
+        <ColumnInfo>
+          <Column id="COM_CD" type="STRING" size="256"/>
+          <Column id="COM_CD_NM" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ComCd_CRI0003"/>
+      <Dataset id="ds_Ccal">
+        <ColumnInfo>
+          <Column id="ANNOUN_YEAR" size="256" prop="default" type="STRING"/>
+          <Column id="CONFERENCE" size="256" prop="default" type="STRING"/>
+          <Column id="SCL_SCN_CD" size="256" prop="default" type="STRING"/>
+          <Column id="SCL_YMD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="IS_OVERDATE_INNER" size="256" prop="default" type="STRING"/>
+          <Column id="CD_NAME" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_SysTime">
+        <ColumnInfo>
+          <Column id="CURRENT_TIME" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_PaperList">
+        <ColumnInfo>
+          <Column id="PAPER_NO" size="256" prop="default" type="STRING"/>
+          <Column id="MOD_SEQ" type="STRING" size="256"/>
+          <Column id="ATTC_FIL_ID" type="STRING" size="256"/>
+          <Column id="DOCUMENT_ID" type="STRING" size="256"/>
+          <Column id="PAPER_SCN_CD" size="256" prop="default" type="STRING"/>
+          <Column id="REGIST_YMD" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_USER_NM" size="256" prop="default" type="STRING"/>
+          <Column id="ITG_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="ITG_ORG_NM" size="256" prop="default" type="STRING"/>
+          <Column id="SUPI_ITG_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="SUPI_ITG_ORG_CD_NM" size="256" prop="default" type="STRING"/>
+          <Column id="PAPER_NM" size="256" prop="default" type="STRING"/>
+          <Column id="CONFERENCE" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_YEAR" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_AREA_CD" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_AREA_NM" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_AREA_GR" type="STRING" size="256"/>
+          <Column id="KEY_WORD" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_APP_ADD_YN" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_APP_CONF_YN" size="256" prop="default" type="STRING"/>
+          <Column id="EXTRACT_ADD_YN" size="256" prop="default" type="STRING"/>
+          <Column id="EXTRACT_CONF_YN" size="256" prop="default" type="STRING"/>
+          <Column id="PAPER_ADD_YN" size="256" prop="default" type="STRING"/>
+          <Column id="PAPER_CONF_YN" size="256" prop="default" type="STRING"/>
+          <Column id="VIDEO_YN" size="256" prop="default" type="STRING"/>
+          <Column id="PRIZE_YN" size="256" prop="default" type="STRING"/>
+          <Column id="PRIZE_CD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="PATH" size="256" prop="default" type="STRING"/>
+          <Column id="FNAME" size="256" prop="default" type="STRING"/>
+          <Column id="ANN_ADD_YN" size="256" prop="default" type="STRING"/>
+          <Column id="ANN_CONF_YN" size="256" prop="default" type="STRING"/>
+          <Column id="IN_PAPER_NO" size="256" prop="default" type="STRING"/>
+          <Column id="POA_CD" size="256" prop="default" type="STRING"/>
+          <Column id="POA_NM" size="256" prop="default" type="STRING"/>
+          <Column id="SUPI_ITG_ORG_NM" size="256" prop="default" type="STRING"/>
+          <Column id="ANN_EXT_YN" size="256" prop="default" type="STRING"/>
+          <Column id="ANN_EXT_URL" size="256" prop="default" type="STRING"/>
+          <Column id="TEAM_CFRM" size="256" prop="default" type="STRING"/>
+          <Column id="NEW_PAPER_NO" size="256" prop="default" type="STRING"/>
+          <Column id="USER_POA_CD" type="STRING" size="256"/>
+          <Column id="USER_POA_NM" type="STRING" size="256"/>
+          <Column id="ITG_USER_ID" type="STRING" size="256"/>
+          <Column id="ITG_USER_NM" type="STRING" size="256"/>
+          <Column id="ORG_CO_NM" type="STRING" size="256"/>
+          <Column id="APPROVAL_STATE_NM2" type="STRING" size="256"/>
+          <Column id="APPROVAL_STATE2" type="STRING" size="256"/>
+          <Column id="DOCUMENT_ID2" type="STRING" size="256"/>
+          <Column id="CURRENT_TYPE" type="STRING" size="256"/>
+          <Column id="ANNOUN_YN" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_AnnonceArea">
+        <ColumnInfo>
+          <Column id="ANNOUN_YEAR" size="256" prop="default" type="STRING"/>
+          <Column id="CONFERENCE" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_AREA_CD" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_AREA_NM" size="256" prop="default" type="STRING"/>
+          <Column id="AREA_MGR_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="INOUT_CD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_DTM" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_Conference">
+        <ColumnInfo>
+          <Column id="ANNOUN_YEAR" size="256" prop="default" type="STRING"/>
+          <Column id="CONFERENCE" size="256" prop="default" type="STRING"/>
+          <Column id="SIDE_SCN_CD" size="256" prop="default" type="STRING"/>
+          <Column id="CONFERENCE_NM" size="256" prop="default" type="STRING"/>
+          <Column id="CONFERENCE_REMK" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_AREA_CD" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_AREA_NM" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_GUBUN_YN" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_Cond">
+        <ColumnInfo>
+          <Column id="AREA" size="256" prop="default" type="STRING"/>
+          <Column id="YEAR" size="256" prop="default" type="STRING"/>
+          <Column id="ITG_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="ITG_ORG_CENTER_CD" size="256" prop="default" type="STRING"/>
+          <Column id="USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="KEY_WORD" size="256" prop="default" type="STRING"/>
+          <Column id="FROM_ROW" size="256" prop="default" type="STRING"/>
+          <Column id="TO_ROW" size="256" prop="default" type="STRING"/>
+          <Column id="CONFERENCE" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_AREA_CD" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="ANNOUN_AREA_CD"/>
+            <Col id="AREA"/>
+            <Col id="CONFERENCE"/>
+            <Col id="FROM_ROW"/>
+            <Col id="ITG_ORG_CD"/>
+            <Col id="ITG_ORG_CENTER_CD"/>
+            <Col id="KEY_WORD"/>
+            <Col id="TO_ROW"/>
+            <Col id="USER_ID"/>
+            <Col id="YEAR"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_Attach_chg">
+        <ColumnInfo>
+          <Column id="SYS_CD" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_ID" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_G_SN" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_SN" size="256" prop="default" type="STRING"/>
+          <Column id="UPLD_REAI_FIL_NM" size="256" prop="default" type="STRING"/>
+          <Column id="UPLD_MGMT_FIL_NM" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_PATH_ADR" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_CPC" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_EXT_NM" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="NEW_ATTC_FIL_ID" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_Attach03">
+        <ColumnInfo>
+          <Column id="SYS_CD" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_ID" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_G_SN" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_SN" size="256" prop="default" type="STRING"/>
+          <Column id="UPLD_REAI_FIL_NM" size="256" prop="default" type="STRING"/>
+          <Column id="UPLD_MGMT_FIL_NM" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_PATH_ADR" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_CPC" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_EXT_NM" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="NEW_ATTC_FIL_ID" size="256" prop="default" type="STRING"/>
+          <Column id="SAVE_FLAG" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_Attach06">
+        <ColumnInfo>
+          <Column id="SYS_CD" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_ID" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_G_SN" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_SN" size="256" prop="default" type="STRING"/>
+          <Column id="UPLD_REAI_FIL_NM" size="256" prop="default" type="STRING"/>
+          <Column id="UPLD_MGMT_FIL_NM" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_PATH_ADR" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_CPC" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_EXT_NM" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="NEW_ATTC_FIL_ID" size="256" prop="default" type="STRING"/>
+          <Column id="SAVE_FLAG" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_Attach02">
+        <ColumnInfo>
+          <Column id="SYS_CD" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_ID" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_G_SN" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_SN" size="256" prop="default" type="STRING"/>
+          <Column id="UPLD_REAI_FIL_NM" size="256" prop="default" type="STRING"/>
+          <Column id="UPLD_MGMT_FIL_NM" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_PATH_ADR" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_CPC" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_EXT_NM" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="NEW_ATTC_FIL_ID" size="256" prop="default" type="STRING"/>
+          <Column id="SAVE_FLAG" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_paperGbn">
+        <ColumnInfo>
+          <Column id="COM_CD" size="256" prop="default" type="STRING"/>
+          <Column id="COM_CD_NM" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ApplyList">
+        <ColumnInfo>
+          <Column id="CHK" type="STRING" size="256"/>
+          <Column id="SEQ" size="256" prop="default" type="STRING"/>
+          <Column id="SUGGEST_NO" size="256" prop="default" type="STRING"/>
+          <Column id="K_SUGGEST_NO" size="256" prop="default" type="STRING"/>
+          <Column id="PAPER_NO" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_NestedDeptList"/>
+      <Dataset id="ds_UserDesc">
+        <ColumnInfo>
+          <Column id="ITG_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="X_WEBFARM_CODE" size="256" prop="default" type="STRING"/>
+          <Column id="X_USER_ALIAS" size="256" prop="default" type="STRING"/>
+          <Column id="ITG_USER_NM" size="256" prop="default" type="STRING"/>
+          <Column id="ITG_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="ITG_ORG_NM" size="256" prop="default" type="STRING"/>
+          <Column id="USER_RBOF_CD" size="256" prop="default" type="STRING"/>
+          <Column id="USER_RBOF_NM" size="256" prop="default" type="STRING"/>
+          <Column id="ITG_EML_ADR" size="256" prop="default" type="STRING"/>
+          <Column id="USER_CO_CD" size="256" prop="default" type="STRING"/>
+          <Column id="USER_G_SCN_CD" size="256" prop="default" type="STRING"/>
+          <Column id="USER_DTL_SCN_CD" size="256" prop="default" type="STRING"/>
+          <Column id="USER_CO_NM" size="256" prop="default" type="STRING"/>
+          <Column id="USER_TN_SBC" size="256" prop="default" type="STRING"/>
+          <Column id="USER_FAX_TN_SBC" size="256" prop="default" type="STRING"/>
+          <Column id="USER_HP_TN_SBC" size="256" prop="default" type="STRING"/>
+          <Column id="USER_BEEP_NO_SBC" size="256" prop="default" type="STRING"/>
+          <Column id="USER_DTPC_CD" size="256" prop="default" type="STRING"/>
+          <Column id="USER_DTPC_NM" size="256" prop="default" type="STRING"/>
+          <Column id="USER_POA_CD" size="256" prop="default" type="STRING"/>
+          <Column id="USER_POA_NM" size="256" prop="default" type="STRING"/>
+          <Column id="POA_L_CD" size="256" prop="default" type="STRING"/>
+          <Column id="X_ADD_DEPT_INFO" size="256" prop="default" type="STRING"/>
+          <Column id="USER_CHRG_AFFR_SBC" size="256" prop="default" type="STRING"/>
+          <Column id="DTL_CHRG_AFFR_SBC" size="256" prop="default" type="STRING"/>
+          <Column id="PW" size="256" prop="default" type="STRING"/>
+          <Column id="USER_EN_NM" size="256" prop="default" type="STRING"/>
+          <Column id="ITG_YN" size="256" prop="default" type="STRING"/>
+          <Column id="SORT_CD" size="256" prop="default" type="STRING"/>
+          <Column id="DEL_YN" size="256" prop="default" type="STRING"/>
+          <Column id="X_USER_CLASS" size="256" prop="default" type="STRING"/>
+          <Column id="CRE_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="MDFY_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="PW_ALTR_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="LGI_SUCS_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="LGI_FAIL_OFT" size="256" prop="default" type="STRING"/>
+          <Column id="X_PERSONALVIEWCHECK" size="256" prop="default" type="STRING"/>
+          <Column id="OTP_USE_YN" size="256" prop="default" type="STRING"/>
+          <Column id="LGI_YN" size="256" prop="default" type="STRING"/>
+          <Column id="X_POLICY_IGNORELOGONFLAG" size="256" prop="default" type="STRING"/>
+          <Column id="LANG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="X_IDC_CODE" size="256" prop="default" type="STRING"/>
+          <Column id="ITG_ORG_EN_NM" size="256" prop="default" type="STRING"/>
+          <Column id="USER_ROF_EN_NM" size="256" prop="default" type="STRING"/>
+          <Column id="USER_POA_EN_NM" size="256" prop="default" type="STRING"/>
+          <Column id="USER_DTPC_EN_NM" size="256" prop="default" type="STRING"/>
+          <Column id="USER_CO_EN_NM" size="256" prop="default" type="STRING"/>
+          <Column id="X_EX_OPTION" size="256" prop="default" type="STRING"/>
+          <Column id="IF_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="USER_SCN_CD" size="256" prop="default" type="STRING"/>
+          <Column id="SRC_SYS_CD" size="256" prop="default" type="STRING"/>
+          <Column id="USE_YN" size="256" prop="default" type="STRING"/>
+          <Column id="USER_OTP_USE_YN" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_DTM" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_Attach">
+        <ColumnInfo>
+          <Column id="SYS_CD" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_ID" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_G_SN" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_SN" size="256" prop="default" type="STRING"/>
+          <Column id="UPLD_REAI_FIL_NM" size="256" prop="default" type="STRING"/>
+          <Column id="UPLD_MGMT_FIL_NM" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_PATH_ADR" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_CPC" size="256" prop="default" type="STRING"/>
+          <Column id="ATTC_FIL_EXT_NM" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="NEW_ATTC_FIL_ID" size="256" prop="default" type="STRING"/>
+          <Column id="SAVE_FLAG" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_usage">
+        <ColumnInfo>
+          <Column id="PAPER_NO" size="256" prop="default" type="STRING"/>
+          <Column id="OPEN_CNT" size="256" prop="default" type="STRING"/>
+          <Column id="DOWN_CNT" size="256" prop="default" type="STRING"/>
+          <Column id="SHARE_CNT" size="256" prop="default" type="STRING"/>
+          <Column id="MARK_CNT" size="256" prop="default" type="STRING"/>
+          <Column id="REVW_CNT" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+        <Rows>
+          <Row/>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_revw">
+        <ColumnInfo>
+          <Column id="PAPER_NO" size="256" prop="default" type="STRING"/>
+          <Column id="SEQ" size="256" prop="default" type="STRING"/>
+          <Column id="MOD_SEQ" size="256" prop="default" type="STRING"/>
+          <Column id="REVW_DESC" size="256" prop="default" type="STRING"/>
+          <Column id="REG_USER_NM" type="STRING" size="256"/>
+          <Column id="REG_USER_ORG_NM" type="STRING" size="256"/>
+          <Column id="REG_USER_ID" type="STRING" size="256"/>
+          <Column id="REG_DATE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_mark">
+        <ColumnInfo>
+          <Column id="PAPER_NO" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="MARK_YN" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_CpaaList">
+        <ColumnInfo>
+          <Column id="ANNOUN_YEAR" size="256" prop="default" type="STRING"/>
+          <Column id="CONFERENCE" size="256" prop="default" type="STRING"/>
+          <Column id="SCL_SCN_CD" size="256" prop="default" type="STRING"/>
+          <Column id="SCL_YMD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="VBG_CRE_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="FIN_MDFY_DTM" size="256" prop="default" type="STRING"/>
+          <Column id="IS_OVERDATE_INNER" size="256" prop="default" type="STRING"/>
+          <Column id="CD_NAME" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_Cond_Temp">
+        <ColumnInfo>
+          <Column id="AREA" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_YEAR" size="256" prop="default" type="STRING"/>
+          <Column id="ITG_ORG_CD" size="256" prop="default" type="STRING"/>
+          <Column id="ITG_ORG_CENTER_CD" size="256" prop="default" type="STRING"/>
+          <Column id="USER_ID" size="256" prop="default" type="STRING"/>
+          <Column id="USER_NM" size="256" prop="default" type="STRING"/>
+          <Column id="KEY_WORD_1" size="256" prop="default" type="STRING"/>
+          <Column id="FROM_ROW" size="256" prop="default" type="STRING"/>
+          <Column id="TO_ROW" size="256" prop="default" type="STRING"/>
+          <Column id="CONFERENCE" size="256" prop="default" type="STRING"/>
+          <Column id="SUPI_ITG_ORG_NM" size="256" prop="default" type="STRING"/>
+          <Column id="PRIZE" size="256" prop="default" type="STRING"/>
+          <Column id="KEY_WORD_2" size="256" prop="default" type="STRING"/>
+          <Column id="All" type="STRING" size="256"/>
+          <Column id="CURROW" type="STRING" size="256"/>
+          <Column id="POS" type="STRING" size="256"/>
+          <Column id="YEAR_FROM" type="STRING" size="256"/>
+          <Column id="YEAR_TO" type="STRING" size="256"/>
+        </ColumnInfo>
+        <Rows>
+          <Row>
+            <Col id="AREA"/>
+            <Col id="CONFERENCE"/>
+            <Col id="FROM_ROW"/>
+            <Col id="ITG_ORG_CD"/>
+            <Col id="ITG_ORG_CENTER_CD"/>
+            <Col id="KEY_WORD_1"/>
+            <Col id="KEY_WORD_2"/>
+            <Col id="PRIZE"/>
+            <Col id="SUPI_ITG_ORG_NM"/>
+            <Col id="TO_ROW"/>
+            <Col id="USER_ID"/>
+            <Col id="USER_NM"/>
+            <Col id="ANNOUN_YEAR"/>
+            <Col id="All"/>
+            <Col id="CURROW"/>
+          </Row>
+        </Rows>
+      </Dataset>
+      <Dataset id="ds_AppHeader">
+        <ColumnInfo>
+          <Column id="DOCUMENT_ID" size="256" prop="default" type="STRING"/>
+          <Column id="COMPANY_TYPE" size="256" prop="default" type="STRING"/>
+          <Column id="SYSTEM_TYPE" size="256" prop="default" type="STRING"/>
+          <Column id="MODULE_TYPE" size="256" prop="default" type="STRING"/>
+          <Column id="BIZ_CODE" size="256" prop="default" type="STRING"/>
+          <Column id="APPROVAL_NO" size="256" prop="default" type="STRING"/>
+          <Column id="APPROVAL_TITLE" size="256" prop="default" type="STRING"/>
+          <Column id="DEPT_CODE" size="256" prop="default" type="STRING"/>
+          <Column id="DEPT_NAME" size="256" prop="default" type="STRING"/>
+          <Column id="EMP_NO" size="256" prop="default" type="STRING"/>
+          <Column id="EMP_NM" size="256" prop="default" type="STRING"/>
+          <Column id="POSITION_NAME" size="256" prop="default" type="STRING"/>
+          <Column id="CONTENT_URL" size="256" prop="default" type="STRING"/>
+          <Column id="RETURN_URL" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_app_cancle">
+        <ColumnInfo>
+          <Column id="APPROVAL_STATE" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_ComCDList">
+        <ColumnInfo>
+          <Column id="Column1" type="STRING" size="256"/>
+          <Column id="Column0" type="STRING" size="256"/>
+        </ColumnInfo>
+      </Dataset>
+      <Dataset id="ds_AnnonceType">
+        <ColumnInfo>
+          <Column id="ANNOUN_AREA_GR" size="256" prop="default" type="STRING"/>
+          <Column id="ANNOUN_AREA_GN" size="256" prop="default" type="STRING"/>
+          <Column id="SORT_SN" size="256" prop="default" type="STRING"/>
+        </ColumnInfo>
+      </Dataset>
+    </Objects>
+    <Bind>
+      <BindItem id="edt_announ_user_id_value" compid="edt_announ_user_id" propid="value" datasetid="ds_PaperList" columnid="ANNOUN_USER_ID"/>
+      <BindItem id="edt_announ_user_nm_value" compid="edt_announ_user_nm" propid="value" datasetid="ds_PaperList" columnid="ANNOUN_USER_NM"/>
+      <BindItem id="edt_poa_nm_value" compid="edt_poa_nm" propid="value" datasetid="ds_PaperList" columnid="POA_NM"/>
+      <BindItem id="item0" compid="edt_itg_orgNm" propid="value" datasetid="ds_PaperList" columnid="ITG_ORG_NM"/>
+      <BindItem id="item1" compid="edt_itg_orgNm00" propid="value" datasetid="ds_PaperList" columnid="MOD_SEQ"/>
+      <BindItem id="item2" compid="edt_comp" propid="value" datasetid="ds_PaperList" columnid="ORG_CO_NM"/>
+      <BindItem id="item3" compid="sp_year" propid="value" datasetid="ds_PaperList" columnid="ANNOUN_YEAR"/>
+      <BindItem id="item4" compid="edt_paper_no" propid="value" datasetid="ds_PaperList" columnid="PAPER_NO"/>
+      <BindItem id="item17" compid="ca_regist_ymd" propid="value" datasetid="ds_PaperList" columnid="VBG_CRE_DTM"/>
+      <BindItem id="item5" compid="edt_paper_nm" propid="value" datasetid="ds_PaperList" columnid="PAPER_NM"/>
+      <BindItem id="item6" compid="edt_itg_orgNm_sup" propid="value" datasetid="ds_PaperList" columnid="SUPI_ITG_ORG_NM"/>
+      <BindItem id="item7" compid="edt_key_word" propid="value" datasetid="ds_PaperList" columnid="KEY_WORD"/>
+      <BindItem id="item8" compid="cbo_conference" propid="value" datasetid="ds_PaperList" columnid="CONFERENCE"/>
+      <BindItem id="item9" compid="ra_paperGbn" propid="value" datasetid="ds_PaperList" columnid="PAPER_SCN_CD"/>
+      <BindItem id="item10" compid="cbo_annonce_area" propid="value" datasetid="ds_PaperList" columnid="ANNOUN_AREA_CD"/>
+      <BindItem id="item11" compid="edt_appr_state" propid="value" datasetid="ds_PaperList" columnid="APPROVAL_STATE_NM"/>
+      <BindItem id="item12" compid="cbo_annonce_type" propid="value" datasetid="ds_PaperList" columnid="ANNOUN_AREA_GR"/>
+    </Bind>
+    <Script type="xscript5.0"><![CDATA[/*
+ * PROGRAM ID		: CRIEXE0011                    
+ * PROGRAM NAME		: 학술대회논문등록,수정
+ * VERSION			: V1.0                                  
+ * DESCRIPTION		: 학술대회논문등록,수정
+ * DESIGNER NAME	:                                 
+ * DEVELOPER NAME	:                                 
+ * CREATE DATE		: 2011/08/17                  
+ * REVERSION HISTORY : 
+ * Date	  		Ver    		Name	Description
+ * ----------	-------     ------  --------------------------------------
+ * 22011/08/17     V1.0       	 	Initial Version
+ * 2020/06/15				공보성 넥사전환
+ * 2024/06/19			
+ -결재완료 : 재상신가능, 파일 변경시 작성중 문서로 이동
+ -관리자 :  파일 변경 가능 
+ /**************************************************************
+  1. 공통 Script Include
+**************************************************************/
+include "com_Libs::Common.xjs";
+include "com_Libs::CommonCRI.xjs";
+
+this.paperNo = "";							// 논문번호 
+this.state = "";							// 등록 : "I" 수정 : "U"  읽기 : "R"  개정 : DU  결제화면 또는 버튼제어 없는 읽기 "AR"
+
+this.fa_SysCode = "CRI";
+this.W_MODE="R";
+this.fv_subfolder =	this.CONST_CRI_FILES_ROOT;  	// 시스템별 파일저장 폴더 설정
+
+this.ATTC_FIL_ID = "";						// 첨부파일 아이디.
+this.CURR_YEAR = "";						// 현재년도
+this.announ_year = "";						// 발표년도(부모창에서 넘어온 값)
+this.fa_FileAuth = "1"; 					// DRM 파일권한
+this.twoThreeCD = ""; 						//초록,발표논문 여부
+
+this.ATTC_FIL_ID = "";
+
+// 수정이 허용되는 부모 화면 (주로 마이 페이지)
+this.ALLOW_EDIT_FORM = ['CRIEXE0570', 'CRIEXE0500', 'CRIEXE0510', 'CRIEXE0520'];
+
+
+/*
+ * FUNCTION NAME	: CRIEXE0011_OnLoadCompleted 
+ */
+this.CRIEXE0011_OnLoadCompleted = function(obj:Form, e:nexacro.LoadEventInfo){
+	//폼 공통함수 
+	this.gfn_frm_Init(obj, true, true);          
+	
+	this.gfn_CommonDs("ds_ComCd_CRI0001","CRI0001","Z");	// 공통코드를 가져온다. - 논문구분 코드(CRI0001)
+	this.gfn_CommonDs("ds_ComCd_CRI0003","CRI0003","Z");	// 공통코드를 가져온다. - 학술대회 일정 구분 코드(CRI0003)
+	this.ds_ComCd_CRI0001.filter("COM_CD=='01' || COM_CD=='02'");
+	this.ra_paperGbn.set_value("01");		
+	
+	trace("FORM_ID:"+this.ALLOW_EDIT_FORM+"--"+this.gfn_getParam("FORM_ID"));
+// 	if (this.ALLOW_EDIT_FORM.indexOf(this.gfn_getParam("FORM_ID")) < 0) {	 
+// 		this.dv_TopIcon.btn_Upd.set_visible(false);
+// 		this.dv_TopIcon.btn_delete.set_visible(false);  
+// 	}
+	
+	this.gfn_setFileAuth();
+	
+	this.fn_appr_start();
+	
+} 
+
+this.fn_appr_start = function()
+{
+	this.gfn_getCurrentTime();
+	
+	if(nexacro.Browser != "Runtime"){
+		//this.gfn_initDext(this, [],[this.dv_IUpDown_2,this.dv_IUpDown_3,this.dv_IUpDown_6]);
+		this.gfn_initDextCRI(this, [],[this.dv_IUpDown_2,this.dv_IUpDown_3,this.dv_IUpDown_6]);	//CRI용
+	}else{
+		this.fn_init_Search();
+	}
+}
+
+this.fn_callback_currTime = function(currTime)  
+{		
+	this.CURRDATE=this.gfn_subString(this.ds_SysTime.getColumn(0,"CURRENT_TIME"),0,8);
+}
+
+/*
+ * FUNCTION NAME	: fn_dextLoaded
+ * DESCRIPTION  	: URL로 연결된 Div 내에 DEXT5 컴퍼넌트가 로드 완료 후 호출되는 함수
+ * PARAMETER    	:
+ *      NAME		IN/OUT	DESCRIPTION 
+ * RETURN 			:
+ *      TYPE		DESCRIPTION
+ */
+this.fn_dextLoaded = function(obj) {
+
+	if (obj == this.dv_IUpDown_2) {
+
+			obj.fn_setUploadParam({
+				  mode					: this.W_MODE				// 설정할 모드를 의미합니다.
+				, datasetId				: "ds_Attach02"		// 관련 Dataset의 id
+				, syscode				: this.fa_SysCode 	// 시스템코드 (예: "ZCM")
+				, subfolder				: this.fv_subfolder	// Subfolder명 (예: "sub1")
+				, groupSn				: "2"				// 첨부파일그룹일련번호를 설정합니다.
+				, maxTotalFileCount		: 3 				// 최대 파일의 개수 (예 5)
+				, loadCallbackFuncName	: "fn_init_Search"		// DEXT5 컴퍼넌트가 모두 로드 완료 후 실행될 함수명
+				, tranCallbackFuncName	: ""		// DEXT5UPLOAD 객체의 전송이 완료 후 실행될 함수명
+			});
+	}else if (obj == this.dv_IUpDown_3) {	//결함첨부파일	
+
+			obj.fn_setUploadParam({
+				  mode					: this.W_MODE				// 설정할 모드를 의미합니다.
+				, datasetId				: "ds_Attach03"		// 관련 Dataset의 id
+				, syscode				: this.fa_SysCode 	// 시스템코드 (예: "ZCM")
+				, subfolder				: this.fv_subfolder	// Subfolder명 (예: "sub1")
+				, groupSn				: "3"				// 첨부파일그룹일련번호를 설정합니다.
+				, maxTotalFileCount		: 3 				// 최대 파일의 개수 (예 5)
+				, loadCallbackFuncName	: "fn_init_Search"		// DEXT5 컴퍼넌트가 모두 로드 완료 후 실행될 함수명
+				, tranCallbackFuncName	: ""		// DEXT5UPLOAD 객체의 전송이 완료 후 실행될 함수명
+			});
+	}else if (obj == this.dv_IUpDown_6) {	
+
+			obj.fn_setUploadParam({
+				  mode					: this.W_MODE				// 설정할 모드를 의미합니다.
+				, datasetId				: "ds_Attach06"		// 관련 Dataset의 id
+				, syscode				: this.fa_SysCode 	// 시스템코드 (예: "ZCM")
+				, subfolder				: this.fv_subfolder	// Subfolder명 (예: "sub1")
+				, groupSn				: "6"				// 첨부파일그룹일련번호를 설정합니다.
+				, maxTotalFileCount		: 3 				// 최대 파일의 개수 (예 5)
+				, loadCallbackFuncName	: "fn_init_Search"		// DEXT5 컴퍼넌트가 모두 로드 완료 후 실행될 함수명
+				, tranCallbackFuncName	: ""		// DEXT5UPLOAD 객체의 전송이 완료 후 실행될 함수명
+			});
+	}
+}
+
+this.fn_init_Search = function() {
+
+	// 파라미터 설정
+	this.state 	= this.gfn_getParam("STATE");
+	this.paperNo 	= this.gfn_getParam("PAPER_NO");
+	this.modSeq 	= this.gfn_getParam("MOD_SEQ");			//목록->상세	//수정요청->상세
+	this.announ_year 	= this.gfn_getParam("ANNOUN_YEAR"); 
+	this.paper_scn_cd 	= this.gfn_getParam("PAPER_SCN_CD"); 
+	this.form_id 	= this.gfn_getParam("FORM_ID"); 
+	
+	this.gfn_setParam("STATE","");
+	this.gfn_setParam("PAPER_NO","");
+	this.gfn_setParam("MOD_SEQ","");
+	this.gfn_setParam("ANNOUN_YEAR","");
+	this.gfn_setParam("PAPER_SCN_CD","");
+	this.gfn_setParam("FORM_ID","");
+
+	if(application.GV_OPEN_MODE=="mdi"){
+		for(var i=0;i <= application.GDS_OPENWIN.rowcount;i++){
+			strWorkFormID = application.GDS_OPENWIN.getColumn(i,"WORKFORM_ID");
+			if(this.gfn_subString(strWorkFormID, 0, 15) == "CRI_"+this.form_id+"_"){
+				// 조회 조건 임시데이타셋을 삭제한다.
+				// 데이터셋 복사
+				this.ds_Cond_Temp.loadXML(application.apFramesetWork.frames[strWorkFormID].form.div_main.ds_cond.saveXML(),true);
+				this.ds_Cond_Temp.clearData();
+				this.ds_Cond_Temp.copyData(application.apFramesetWork.frames[strWorkFormID].form.div_main.ds_cond);
+				this.fn_open_close("CRI_CRIEXE0011_");						//논문등록
+				//application.apFramesetWork.frames[strWorkFormID].form.close();
+				break;
+			}
+		}
+	}else{		
+		if(application.GV_INIT_PARAM != null && application.GV_INIT_PARAM != "") {
+			var paramArr = application.GV_INIT_PARAM.split(",");
+			var paramValArr;
+			for(var i = 0; i < paramArr.length; i++) {
+				paramValArr = paramArr[i].split("=");	
+
+				if(paramValArr[0] == "PAPER_NO") {
+					this.paperNo = paramValArr[1];
+				}else if(paramValArr[0] == "MOD_SEQ") {
+					this.modSeq = paramValArr[1];
+				}else if(paramValArr[0] == "ANNOUN_YEAR") {
+					this.announ_year = paramValArr[1];
+				}else if(paramValArr[0] == "PAPER_SCN_CD") {
+					this.paper_scn_cd = paramValArr[1];
+				}else if(paramValArr[0] == "STATE_CD") {
+					this.state = paramValArr[1];
+				}else{}
+			}
+			
+			this.dv_ComIcon.set_visible(false);
+			this.dv_TopIcon.set_visible(false);
+			this.ta_revw.set_enable(false);
+			this.btn_revw.set_enable(false);
+			this.grd_revw.set_readonly(true);
+			this.btn_mark_F.set_enable(false);
+			this.btn_mark_T.set_enable(false);
+		}
+	}
+
+	trace("PAPER_NO : "+this.paperNo);
+	trace("MOD_SEQ : "+this.modSeq);
+	trace("ANNOUN_YEAR : "+this.announ_year);
+	trace("PAPER_SCN_CD :"+this.paper_scn_cd);
+	
+	this.ufn_Common();
+}
+
+/*
+ * FUNCTION NAME	: fn_Common
+ * DESCRIPTION  	: 폼 공통처리 이외에 기본 설정
+ * PARAMETER    	:
+ *      NAME		IN/OUT	DESCRIPTION 
+ * RETURN 			:
+ *      TYPE		DESCRIPTION
+ */
+
+this.ufn_Common = function()
+{	
+	var strParam =  "ITG_USER_ID="+nexacro.wrapQuote(application.GV_USER_ID);				// 통합사용자 ID
+		strParam += " LANG_CD="+nexacro.wrapQuote(application.GV_USER_LANG);				// 언어구분
+		strParam += " ANNOUN_YEAR="+nexacro.wrapQuote(this.announ_year);					// 발표년도
+		strParam += " SIDE_SCN_CD="+nexacro.wrapQuote(this.CONST_CRI_SIDE_SCN_CD_INNER);	// 사내사외구분
+		strParam += " ITG_ORG_CD="+nexacro.wrapQuote(application.GV_USER_DEPT_CD);
+		
+		if(this.paper_scn_cd=="01"){
+			strParam += " ITG_ORG_GRD_NM="+nexacro.wrapQuote("사업부");
+		}else{
+		}
+		
+	this.tit_clearActionInfo();	
+	this.tit_addSearchActionInfo("cri/com:ZCMAUSER_SEL_BY_ID");				// 통합사용자 정보 조회
+	this.tit_addSearchActionInfo("cri/com:ZCMAORGA_SEL_BY_ITG_ORG_CD");		// 통합조직 조회 (해당 사업부 구한다.)
+	this.tit_addSearchActionInfo("cri/com:CRIAAPPC_SEL_LIST_01");			// 학회조회
+	
+	this.tit_callService(
+		"CRI"						// 시스템코드 및 Action 명
+		,""							// 메서드명
+		,"" 						// input 데이터셋
+		,"ds_UserDesc=ds_UserDesc ds_Conference=ds_Conference ds_NestedDeptList=ds_NestedDeptList"		// output 데이터셋
+		,strParam 					// 파라미터
+		,"fn_callback_Common"	// 콜백펑션
+		,false						// 에러발생시 Callback 함수 호출 여부
+		,false						// 처리중입니다. 메시지 창 호출 여부
+	);	
+}
+
+this.fn_callback_Common = function(ErrCode, ErrMsg)
+{
+	if(ErrCode < 0) {	
+		this.gfn_showMsg("ZCMA000006", "에러가 발생했습니다.");
+	} else { 
+		this.fn_search();
+	}	
+}
+	
+this.ra_paperGbn_onitemchanged = function(obj:Radio, e:nexacro.ItemChangeEventInfo)
+{
+	this.ds_PaperList.setColumn(0,"PAPER_SCN_CD",		obj.value); 	//논문구분 변경
+}
+
+
+this.fn_search = function()
+{
+	this.tit_clearActionInfo();	
+		
+	this.tit_addSearchActionInfo("cri/ex:CRIEXE0011_SEL");				// 논문조회
+	this.tit_addSearchActionInfo("cri/com:ZCMAFILE_SEL_01");			// 첨부파일 조회
+	this.tit_addSearchActionInfo("cri/ex:CRIACPAA_SEL_LIST_01");		// 공동저자 조회
+	this.tit_addSearchActionInfo("cri/ex:CRIAAPLY_SEL_LIST_01");		// 특허  조회
+	this.tit_addSearchActionInfo("cri/ex:CRIEXE0012_RESULT_SEL");				// 논문조회
+	
+	var strParam =  "PAPER_NO="+nexacro.wrapQuote(this.paperNo);		// 논문번호
+		strParam+=  "MOD_SEQ="+nexacro.wrapQuote(this.modSeq);			// 논문번호 리비전
+	
+	if(this.modSeq==1){
+		strParam += " ATTC_FIL_ID="+nexacro.wrapQuote(this.paperNo);					// 논문번호
+	}else{
+		strParam += " ATTC_FIL_ID="+nexacro.wrapQuote(this.paperNo+"_"+this.modSeq);	// 논문번호
+	}
+
+	this.tit_callService(
+		"CRI"						// 시스템코드 및 Action 명
+		,""							// 메서드명
+		,"" 					// input 데이터셋
+		,"ds_PaperList=ds_PaperList ds_CpaaList=ds_CpaaList ds_ApplyList=ds_ApplyList ds_Attach=ds_Attach  ds_ComCDList=ds_ComCDList"
+		,strParam 					// 파라미터
+		,"fn_callback_searchPaper"	// 콜백펑션
+		,false						// 에러발생시 Callback 함수 호출 여부
+		,false						// 처리중입니다. 메시지 창 호출 여부
+	);	
+}
+
+this.fn_callback_searchPaper = function(ErrCode, ErrMsg)
+{
+
+	if(ErrCode < 0) {	
+		this.gfn_showMsg("ZCMA000006", "에러가 발생했습니다.");
+	} else { 
+ 
+		// 상세 조회 내용 셋팅
+		this.ufn_attc_search();
+
+		// 학회별 학술대회일정 조회
+	 	this.fn_getCcalList(this.cbo_conference.value); 	
+	 	//this.fn_revw_search();									//리뷰조회 (2023-12-11 팝업으로 교체)
+	 	this.fn_mark_search();									//북마크조회
+
+	 	this.gfn_usageRate(this.paperNo,"OPEN"); 				//이용수 카운터
+	 	this.fn_usageRateSearch(this.paperNo,"ds_usage");		//이용수 조회	//3시간 단위 업데이트 	
+	}	
+}
+
+
+/**************************************************************
+ * FUNCTION NAME	: fn_setUserRole
+ * PARAMETER		: GUBUN :: default: null(시스템메인),결재화면에서 ROLE 정보 가져다 쓸때
+ * DESCRIPTION  	:
+ * RETURN			: 없음
+**************************************************************/
+this.fn_usageRateSearch = function(paper_no)
+{
+	trace("fn_usageRateSearch :: "+paper_no);
+	var param = "";
+	    param = "PAPER_NO="+paper_no;
+	this.tit_clearActionInfo();
+	this.tit_addSearchActionInfo("cri/com:CRI_USAGE_RATE_SEL");
+	this.tit_callService(
+		"CRI",
+		"",
+		"",
+		"ds_usage=ds_usage",
+		param,
+		"fn_callback_usageRateSearch",
+		false,
+		false,
+		"search"
+	);	
+
+	this.fn_callback_usageRateSearch = function(ErrCode, ErrMsg){	
+		if(ErrCode < 0) {
+			this.gfn_showMsg("ZCMA000006", "에러가 발생했습니다.");
+			return;
+		} else {
+			if(this.lookup("fn_return_usageRateSearch")){	//필요한경우 쓰자.
+				this.fn_return_usageRateSearch();
+			}
+		}
+	}
+}
+
+this.fn_return_usageRateSearch = function()
+{
+	trace("fn_return_usageRateSearch ENTER");
+	this.edt_open.set_value(this.ds_usage.getColumn(0,"OPEN_CNT"));
+	this.edt_down.set_value(this.ds_usage.getColumn(0,"DOWN_CNT"));
+	this.edt_share.set_value(this.ds_usage.getColumn(0,"SHARE_CNT"));
+	this.edt_mark.set_value(this.ds_usage.getColumn(0,"MARK_CNT"));
+	this.edt_revw.set_value(this.ds_usage.getColumn(0,"REVW_CNT"));
+	
+}
+
+/*-----------------------------------------------------------------------------------------
+ * FUNCTION NAME	: cbo_conference_OnChanged
+ * DESCRIPTION  	: 학회 콤보 변경시 학회별 발표분야 조회 한다. 
+ ----------------------------------------------------------------------------------------*/
+this.cbo_conference_OnChanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{
+	this.fn_conference_change(e.postvalue);
+}
+
+this.fn_conference_change = function(value)
+{
+	this.fn_getCcalList(value);
+}
+/* -----------------------------------------------------------------------------------
+*  cbo_annonce_area_OnChanged
+-----------------------------------------------------------------------------------*/
+this.cbo_annonce_area_OnChanged = function(obj:Combo, e:nexacro.ItemChangeEventInfo)
+{    
+	this.fn_button_set(e.postvalue); 
+}
+
+/*-----------------------------------------------------------------
+ * FUNCTION NAME	: fn_getCcalList
+ * DESCRIPTION  	: 발표분야별 학술대회주요일정을 조회한다.
+ * PARAMETER    	: confCode : 학회 코드 
+ -----------------------------------------------------------------*/
+this.fn_getCcalList = function(confCode){  
+	 
+	this.tit_clearActionInfo();	// 공통 actionInfo 초기화
+	this.tit_addSearchActionInfo("cri/com:CRIAAPPC_SEL_LIST_03");	// 년도,학회별 학술대회 일정 조회
+ 
+	var strParam = "ANNOUN_YEAR="   +nexacro.wrapQuote(this.ds_PaperList.getColumn(0,"ANNOUN_YEAR")); // 현재 년도 YYYY
+		strParam += " CONFERENCE="  +nexacro.wrapQuote(confCode);	 // 학회코드  
+		strParam += " SIDE_SCN_CD="	+nexacro.wrapQuote(nexacro.toNumber(this.CONST_CRI_SIDE_SCN_CD_INNER));	// 사내사외구분
+	
+	var inx = this.ds_Conference.rowposition;
+	var gubun_yn = this.ds_Conference.getColumn(inx, "ANNOUN_GUBUN_YN") ;
+		strParam += " ANNOUN_GUBUN_YN="+ nexacro.wrapQuote(gubun_yn);
+	
+	if(this.state=="I"){
+		strParam += " GUBUN=INS" ; 
+	}else{
+		strParam += " ANNOUN_AREA_CD="  +nexacro.wrapQuote(this.cbo_annonce_area.value);	 // 학회코드 
+		strParam += " GUBUN=MOD" ; 
+	} 
+ 
+	this.tit_callService(
+		"CRI"				// 시스템코드 및 Action 명
+		,""						// 메서드명
+		,"" 				// input 데이터셋
+		,"ds_Ccal=ds_ins_appr"	// output 데이터셋
+		,strParam 				// 파라미터
+		,"fn_callback_getCcalList"	// 콜백펑션
+		,false					// 에러발생시 Callback 함수 호출 여부
+		,false					// 처리중입니다. 메시지 창 호출 여부
+	);		
+		
+}
+
+this.fn_callback_getCcalList = function(ErrCode, ErrMsg)
+{
+	if(ErrCode < 0) {	
+		this.gfn_showMsg("ZCMA000006", "에러가 발생했습니다.");
+	} else { 
+		this.fn_button_set(this.cbo_annonce_area.value);   	//버튼 설정 컨트롤
+	}	
+} 
+
+
+/*-----------------------------------------------------------------
+ * FUNCTION NAME	: fn_setData()
+ * DESCRIPTION  	: 첨부파일 세팅
+ -----------------------------------------------------------------*/
+this.ufn_attc_search = function()
+{
+
+	//관리자는 평문 , 그외 DRM 권한
+
+	// 첨부파일 표시
+	if(this.ds_Attach.rowcount > 0){
+		//초록
+		this.ds_Attach.filter("ATTC_FIL_G_SN=='2'");
+		this.ds_Attach02.copyData(this.ds_Attach,true);
+		this.ds_Attach.filter("");
+
+		//논문
+		this.ds_Attach.filter("ATTC_FIL_G_SN=='3'");
+		this.ds_Attach03.copyData(this.ds_Attach,true);
+		this.ds_Attach.filter("");
+
+		//발표논문
+		this.ds_Attach.filter("ATTC_FIL_G_SN=='6'");
+		this.ds_Attach06.copyData(this.ds_Attach,true);
+		this.ds_Attach.filter("");
+
+		if(nexacro.Browser != "Runtime"){
+			this.dv_IUpDown_2.fn_setUploadedFile();
+			this.dv_IUpDown_3.fn_setUploadedFile();
+			this.dv_IUpDown_6.fn_setUploadedFile();
+		}
+	}
+}
+
+/* -----------------------------------------------------------------------------------
+*  fn_button_set
+-----------------------------------------------------------------------------------*/
+this.fn_button_set = function(strCD){
+	 
+	var findRw = this.ds_Ccal.findRow("ANNOUN_AREA_CD", strCD ); 
+	
+	var TWO_INS_YN = this.ds_Ccal.getColumn(findRw,"TWO_INS_YN") ; 
+	var THREE_INS_YN = this.ds_Ccal.getColumn(findRw,"THREE_INS_YN") ;  
+	var SIX_INS_YN = this.ds_Ccal.getColumn(findRw,"SIX_INS_YN") ; 
+	
+	var TWO_SCL_YMD = this.ds_Ccal.getColumn(findRw,"TWO_SCL_YMD") ;  
+	var THREE_SCL_YMD = this.ds_Ccal.getColumn(findRw,"THREE_SCL_YMD") ; 
+	var SIX_SCL_YMD = this.ds_Ccal.getColumn(findRw,"SIX_SCL_YMD") ; 
+	
+	
+	var TWO_APPR_FR_YMD = this.ds_Ccal.getColumn(findRw,"TWO_APPR_FR_YMD") ; 
+	var THREE_APPR_FR_YMD = this.ds_Ccal.getColumn(findRw,"THREE_APPR_FR_YMD") ; 
+	var SIX_APPR_FR_YMD = this.ds_Ccal.getColumn(findRw,"SIX_APPR_FR_YMD") ;
+	
+	var ANNOUN_AREA_NM= this.ds_Ccal.getColumn(findRw,"ANNOUN_AREA_NM") ; 
+	
+	//현재가 평가일정 기간인가 여부
+	var TWO_APPR_YN = this.ds_Ccal.getColumn(findRw,"TWO_APPR_YN") ; 	
+	var THREE_APPR_YN = this.ds_Ccal.getColumn(findRw,"THREE_APPR_YN") ;  
+	var SIX_APPR_YN = this.ds_Ccal.getColumn(findRw,"SIX_APPR_YN") ; 
+
+	//초록,논문,발표논문 분야별 일자 여부
+	if(SIX_INS_YN=="Y"){			//발표논문
+		this.twoThreeCD=6;
+	}else if(THREE_INS_YN=="Y"){	//논문
+		this.twoThreeCD=3;
+	}else if(TWO_INS_YN=="Y"){		//초록논문
+		this.twoThreeCD=2;
+	}else{
+		this.twoThreeCD="";
+	}
+	
+	trace("STATE : "+this.state+"  "+this.twoThreeCD);
+	trace("ANNOUN_AREA_CD : "+strCD);
+	trace("ANNOUN_AREA_NM : "+ANNOUN_AREA_NM);
+	trace("TWO_INS_YN : "+TWO_INS_YN);
+	trace("THREE_INS_YN : "+THREE_INS_YN);
+	trace("SIX_INS_YN : "+SIX_INS_YN);
+	trace("TWO_SCL_YMD : "+TWO_SCL_YMD);
+	trace("THREE_SCL_YMD : "+THREE_SCL_YMD);
+	trace("SIX_SCL_YMD : "+SIX_SCL_YMD);
+	
+	
+	
+	trace("___________INS_YN_:     "+TWO_INS_YN+"_"+THREE_INS_YN+"_"+SIX_INS_YN);
+	trace("___________APPR_YN_:    "+" _ "+TWO_APPR_YN+" _ "+THREE_APPR_YN+" _ "+SIX_APPR_YN);
+	trace("___________twoThreeCD:     "+this.twoThreeCD);
+	trace("___________APPR_FR_YMD:     "+nexacro.toNumber(THREE_APPR_FR_YMD) +"/"+nexacro.toNumber(SIX_APPR_FR_YMD));
+	
+	
+	var CURR_YEAR_		= this.gfn_subString(this.ds_SysTime.getColumn(0,"CURRENT_TIME"),0,4);
+	var Announ_YEAR_ 	= this.ds_PaperList.getColumn(0,"ANNOUN_YEAR");
+	var announYn        =  this.ds_PaperList.getColumn(0,"ANNOUN_YN");
+	
+	var approval_State = this.ds_PaperList.getColumn(0,"APPROVAL_STATE");	
+	var approval_State2 = this.ds_PaperList.getColumn(0,"APPROVAL_STATE2");
+	
+   trace("#################### announYn : "+announYn+"  -------결재값_1 : "+approval_State+"  / 결재값_2: "+this.ds_PaperList.getColumn(0,"APPROVAL_STATE2"));
+ 	 
+	
+	if(this.paper_scn_cd=="01"){	//사내 
+		this.dv_TopIcon.btn_his.set_visible(true);
+		
+		//관리자 또는 발표자인경우	
+		if(["A", "Y"].indexOf(announYn) > -1){ 
+		
+			this.dv_TopIcon.btn_apprHis.set_visible(true);
+				
+			//-----------------------
+			//202208 추가
+			var CD_01 			= this.ds_ComCDList.getColumn(0,"COM_CD_01_NM");//전체년도
+			var CD_02 			= this.ds_ComCDList.getColumn(0,"COM_CD_02_NM");//당해년도		
+			 
+			//당해년도 조회
+			if(CURR_YEAR_ == Announ_YEAR_){
+				if(CD_02 == "Y"){
+					this.dv_TopIcon.btn_result.set_visible(true);//결과조회
+				}			
+			//전체년도 조회
+			}else if(CURR_YEAR_ != Announ_YEAR_){ 
+				if(CD_01 == "Y"){
+					this.dv_TopIcon.btn_result.set_visible(true);//결과조회
+				}			
+			} 
+			//------------------------
+			
+			 
+			if(announYn=="Y"){ 
+			
+// 				//초록등록 수정가능
+// 				if((+Announ_YEAR_ > 2023 ? TWO_INS_YN : THREE_INS_YN)=="Y" ){ 
+// 					this.dv_TopIcon.btn_Upd.set_visible(true);      
+// 				}
+				
+				//this.dv_TopIcon.btn_apprHis.set_visible(true);
+				
+				//논문등록기간이면
+				if (THREE_INS_YN=="Y"){
+					//this.dv_TopIcon.btn_apprHis.set_visible(true); 
+					if( this.gfn_isNull(approval_State) 
+					 || approval_State=="R" 
+					 || approval_State=="C"  
+					 ){ 
+						this.dv_TopIcon.btn_Upd.set_visible(true); //수정   				
+						this.dv_TopIcon.btn_delete.set_visible(true); 
+						
+						 //평가기간 전이면 			
+						if(nexacro.toNumber(this.CURRDATE)< nexacro.toNumber(THREE_APPR_FR_YMD)){
+							this.dv_TopIcon.btn_appr.set_visible(true);//결재상신
+							this.dv_TopIcon.btn_appr.set_tooltiptext("논문 결재상신") ;// set  
+						}  
+						   
+					}else if(approval_State =="S"){  
+						this.dv_TopIcon.btn_cancelApp.set_visible(true);//상신취소
+						this.dv_TopIcon.btn_cancelApp.set_tooltiptext("상신취소") ;// set  
+					 
+					 } 
+					 
+					 	
+					//결재완료+등록기간중이면  본인것은 수정가능, 202206
+					if(approval_State =="A"){  
+						 this.dv_TopIcon.btn_Upd.set_visible(true); //수정  					 
+					}  
+				} 
+				
+					
+				//발표논문등록기간이면
+				if (SIX_INS_YN=="Y"){
+					//this.dv_TopIcon.btn_apprHis.set_visible(true); 
+					if(this.gfn_isNull(approval_State2) 
+					|| approval_State2=="R"
+					|| approval_State2=="C"
+					//|| approval_State2=="A"
+					){
+					
+						this.dv_TopIcon.btn_Upd.set_visible(true); //수정  
+						
+						//평가기간 전이면 	
+						if( nexacro.toNumber(this.CURRDATE)< nexacro.toNumber(SIX_APPR_FR_YMD) ){ 
+							this.dv_TopIcon.btn_appr.set_visible(true);//결재상신
+							this.dv_TopIcon.btn_appr.set_tooltiptext("발표논문 결재상신") ;// set  
+						}  
+					}else if(approval_State2=="S"){  
+						this.dv_TopIcon.btn_cancelApp.set_visible(true);//상신취소 
+						this.dv_TopIcon.btn_cancelApp.set_tooltiptext("발표논문 상신취소") ;// set  
+					
+					 }
+					 //결재완료인경우  수정가능 
+					  if(approval_State2=="A"){  
+						 this.dv_TopIcon.btn_Upd.set_visible(true); //수정  							 
+					 }  
+				} 
+				
+				 //202406
+				if(CURR_YEAR_ != Announ_YEAR_){ 
+					trace(CURR_YEAR_ +"/"+ Announ_YEAR_);
+					this.dv_TopIcon.btn_Upd.set_visible(false); 
+					this.dv_TopIcon.btn_delete.set_visible(false); 
+					this.dv_TopIcon.btn_appr.set_visible(false); 
+				} 
+				
+			}//if(announYn=="Y") 
+			
+			//초록등록기간이거나 초록심사전까지 삭제가능
+// 			if(+Announ_YEAR_ > 2023 && THREE_INS_YN=="Y"  && nexacro.toNumber(this.CURRDATE)< nexacro.toNumber(THREE_APPR_FR_YMD) ){				
+// 				this.dv_TopIcon.btn_delete.set_enable(true);
+// 			}
+// 			if(+Announ_YEAR_ < 2024 && TWO_INS_YN=="Y"  && nexacro.toNumber(this.CURRDATE)< nexacro.toNumber(TWO_APPR_FR_YMD) ){				
+// 				this.dv_TopIcon.btn_delete.set_enable(true);
+// 			} 
+			
+		}//if(["A", "Y"]
+	  
+			
+		
+	//그룹사	
+	}else{		
+		this.dv_TopIcon.btn_cancelApp.set_visible(false);
+		this.dv_TopIcon.btn_apprHis.set_visible(false);
+		this.dv_TopIcon.btn_his.set_visible(false);
+		this.dv_TopIcon.btn_appr.set_visible(false);//결재상신
+		this.dv_TopIcon.btn_cancelApp.set_visible(false);//상신취소 
+		
+		this.st_comp.set_visible(true);
+		this.edt_comp.set_visible(true);
+		this.chk_dir.set_visible(true);
+		
+		if(this.gfn_isNull(this.ds_PaperList.getColumn(0,"ANNOUN_USER_ID"))){
+			this.chk_dir.set_value(true);
+		}
+		
+		//수정		
+		if(announYn=="Y"){ 
+			if(application.GV_USER_ID == this.ds_PaperList.getColumn(0,"ANNOUN_USER_ID")){	//발표자이고
+			
+				//초록 등록기간 이거나
+				//논문 결재상태가 없거나 상신취소,기각
+				//발표논문 등록기간일때 
+				//수정가능
+				if(TWO_INS_YN=="Y" || THREE_INS_YN=="Y"
+				|| SIX_INS_YN=="Y"){ 
+					this.dv_TopIcon.btn_Upd.set_visible(true);
+				}else{ 
+					this.dv_TopIcon.btn_Upd.set_visible(true);
+				}
+			}
+		}
+// 		//삭제 (~2023)
+// 		if(+Announ_YEAR_ < 2024 && TWO_INS_YN=="Y"  && nexacro.toNumber(this.CURRDATE)< nexacro.toNumber(TWO_APPR_FR_YMD)){	
+// 			//초록등록기간이거나 초록심사전까지 삭제가능
+// 			this.dv_TopIcon.btn_delete.set_enable(true);
+// 		}
+// 		//삭제 (2024~)
+// 		if(+Announ_YEAR_ > 2023 && THREE_INS_YN=="Y"  && nexacro.toNumber(this.CURRDATE)< nexacro.toNumber(THREE_APPR_FR_YMD)){	
+// 			//논문등록기간이거나 논문심사전까지 삭제가능
+// 			this.dv_TopIcon.btn_delete.set_enable(true);
+// 		}
+		
+	}//그룹사
+	
+	//202406
+	//관리자는 수정,삭제 항상 가능
+	if(announYn=="A"){  
+		this.dv_TopIcon.btn_Upd.set_visible(true);   
+		this.dv_TopIcon.btn_delete.set_visible(true); 
+	}
+		
+	if(nexacro.Browser == "Runtime"){ return;}
+	
+	//첨부파일 컨트롤
+	if(this.twoThreeCD==2){			//초록논문기간동안
+		this.dv_IUpDown_2.fv_ReturnCall=true;
+		this.dv_IUpDown_3.fv_ReturnCall=true;
+		this.dv_IUpDown_6.fv_ReturnCall=true;
+ 		this.dv_IUpDown_2.btn_setting(this.getOwnerFrame().fa_DownAuth, this.ds_Attach02.count);
+ 		this.dv_IUpDown_3.btn_setting(this.getOwnerFrame().fa_DownAuth, this.ds_Attach03.count);
+ 		this.dv_IUpDown_6.btn_setting(this.getOwnerFrame().fa_DownAuth, this.ds_Attach06.count);
+ 		
+	}else if(this.twoThreeCD==3){	//논문기간동안
+		this.dv_IUpDown_2.fv_ReturnCall=true;
+		this.dv_IUpDown_3.fv_ReturnCall=true;
+		this.dv_IUpDown_6.fv_ReturnCall=true;
+ 		this.dv_IUpDown_2.btn_setting(this.getOwnerFrame().fa_DownAuth, this.ds_Attach02.count);
+ 		this.dv_IUpDown_3.btn_setting(this.getOwnerFrame().fa_DownAuth, this.ds_Attach03.count);
+ 		this.dv_IUpDown_6.btn_setting(this.getOwnerFrame().fa_DownAuth, this.ds_Attach06.count);
+ 		
+	}else if(this.twoThreeCD==6){	//발표논문기간동안
+		this.dv_IUpDown_2.fv_ReturnCall=true;
+		this.dv_IUpDown_3.fv_ReturnCall=true;
+		this.dv_IUpDown_6.fv_ReturnCall=true;
+ 		this.dv_IUpDown_2.btn_setting(this.getOwnerFrame().fa_DownAuth, this.ds_Attach02.count);
+ 		this.dv_IUpDown_3.btn_setting(this.getOwnerFrame().fa_DownAuth, this.ds_Attach03.count);
+ 		this.dv_IUpDown_6.btn_setting(this.getOwnerFrame().fa_DownAuth, this.ds_Attach06.count);
+ 		
+	}else{
+		this.dv_IUpDown_2.fv_ReturnCall=true;
+		this.dv_IUpDown_3.fv_ReturnCall=true;
+		this.dv_IUpDown_6.fv_ReturnCall=true;
+ 		this.dv_IUpDown_2.btn_setting(this.getOwnerFrame().fa_DownAuth, this.ds_Attach02.count);
+ 		this.dv_IUpDown_3.btn_setting(this.getOwnerFrame().fa_DownAuth, this.ds_Attach03.count);
+ 		this.dv_IUpDown_6.btn_setting(this.getOwnerFrame().fa_DownAuth, this.ds_Attach06.count); 		
+	}
+}
+
+this.dv_TopIcon_btn_Upd_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.fn_open_close("CRI_CRIEXE0011_");						//논문등록
+
+	this.gfn_setParam("STATE","U");
+	this.gfn_setParam("PAPER_NO",this.paperNo);
+	this.gfn_setParam("MOD_SEQ",this.modSeq);
+	this.gfn_setParam("ANNOUN_YEAR",this.announ_year);
+	this.gfn_setParam("PAPER_SCN_CD",this.paper_scn_cd);
+	this.gfn_setParam("FORM_ID",this.form_id);
+	
+	var form_Title = this.gfn_getTitleForChange("CRIL000018");	//논문등록
+	
+	//  공통 MDI 화면 오픈 
+	this.gfn_openMenu("CRIEXE0011","CRIEXE0011",form_Title,"sys_CRI::CRIEXE0011.xfdl","CRI","","","W","","","","","","","","","");
+}
+
+/*----------------------------------------------------------------------------------------
+ * FUNCTION NAME	: ufn_List
+ * DESCRIPTION  	: 조회 목록 화면 이동 
+ ----------------------------------------------------------------------------------------*/
+this.ufn_List = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	trace("CRIEXE0012 ::LIST :: "+this.form_id);
+	
+	this.fn_open_close("CRI_"+this.form_id+"_");
+	
+	var form_Title="";
+	var menu_id="";
+	
+	if(this.form_id=="CRIEXE0010"){
+	//	form_Title = this.gfn_getTitleForChange("CRIL000223");	//논문등록 및 열람
+		menu_id="CRI1000010";
+	}else if(this.form_id=="CRIEXE0500"){
+	//	form_Title = this.gfn_getTitleForChange("CRIL000241");	//작성중 문서
+		menu_id="CRI1000082";
+	}else if(this.form_id=="CRIEXE0510"){
+	//	form_Title = this.gfn_getTitleForChange("CRIL000253");	//결재 진행함
+		menu_id="CRI1000083";
+	}else if(this.form_id=="CRIEXE0520"){
+	//	form_Title = this.gfn_getTitleForChange("CRIL000256");	//등록 완료함
+		menu_id="CRI1000084";
+	}else if(this.form_id=="CRIEXE0020"){
+	//	form_Title = this.gfn_getTitleForChange("CRIL000254");	//논문등록 및 열람(그룹사)
+		menu_id="CRI1000011";
+	}else if(this.form_id=="CRIEXE0070"){
+		//form_Title = application.GDS_MENU.getColumn(application.GDS_MENU.findRow("ITG_MENU_ID","CRI1000111"),"ITG_MENU_NM");
+		menu_id="CRI1000111";
+	}else if(this.form_id=="CRIEXE0080"){
+		//form_Title = application.GDS_MENU.getColumn(application.GDS_MENU.findRow("ITG_MENU_ID","CRI1000111"),"ITG_MENU_NM");
+		menu_id="CRI1000112";
+	}else if(this.form_id=="CRIEXE0570"){
+		//form_Title = this.gfn_getTitleForChange("CRIL000241");	//MY문서함
+		menu_id="CRI1000114";
+	}else{	//default
+	//	form_Title = this.gfn_getTitleForChange("CRIL000223");	//논문등록 및 열람
+		menu_id="CRI1000010";
+	}
+	form_Title = application.GDS_MENU.getColumn(application.GDS_MENU.findRow("ITG_MENU_ID",menu_id),"ITG_MENU_NM");
+	this.gfn_setParam("FORM_ID","CRIEXE0012");
+	
+	//  공통 MDI 화면 오픈 
+	this.gfn_openMenu(this.form_id,this.form_id,form_Title,"sys_CRI::"+this.form_id+".xfdl","CRI","","","W","","","","","","","","",menu_id);	
+}
+
+
+/**************************************************************
+* 함수명      : fn_open_close
+* 설명        : 이미 열린 MDI를 닫는다.
+**************************************************************/
+this.fn_open_close = function(mdiUrl) 
+{
+	var strWorkFormID = "";
+	
+	for(var i=0;i <= application.GDS_OPENWIN.rowcount;i++){
+		strWorkFormID = application.GDS_OPENWIN.getColumn(i,"WORKFORM_ID");
+            trace(this.gfn_subString(strWorkFormID, 0, 15));
+            trace(mdiUrl);
+            
+		if(this.gfn_subString(strWorkFormID, 0, 15) == mdiUrl){
+			application.apFramesetWork.frames[strWorkFormID].form.close();
+			break;
+		}
+	}
+}
+
+
+/* ----------------------------------------------------------------------------------------
+* function : ufn_Delete
+* 등록자만 삭제 가능.
+----------------------------------------------------------------------------------------*/
+
+this.ufn_Delete = function(obj:Button, e:nexacro.ClickEventInfo)
+{
+	var announYn= this.ds_PaperList.getColumn(0,"ANNOUN_YN");  	 
+	var approvalState= this.ds_PaperList.getColumn(0,"APPROVAL_STATE");  	 
+
+	if(["A","Y"].indexOf(announYn) > -1){
+	}else{
+ 		this.gfn_showAlert("CRIA000067","등록자만 삭제할수있습니다.");
+ 		return;	
+	}
+
+	if(this.gfn_isNull(this.ds_PaperList.getColumn(0,"PAPER_NO"))){
+		return;
+	}
+	
+	if(["S","I" ].indexOf(approvalState) > -1){ 
+		this.gfn_showAlert("", "결재진행중인건은 삭제할수없습니다.");
+		return;
+	}
+	
+	// 초록논문 기간에만 삭제가능.
+	// 관리자 삭제 가능.
+	var announ_year = this.ds_PaperList.getColumn(0,"ANNOUN_YEAR");
+	var conference = this.ds_PaperList.getColumn(0,"CONFERENCE");
+	var announ_area_cd = this.ds_PaperList.getColumn(0,"ANNOUN_AREA_CD");
+			
+	if(["Y" ].indexOf(announYn) > -1){
+		var nRow =this.ds_Ccal.findRowExpr("ANNOUN_YEAR=="+nexacro.wrapQuote(announ_year)+"  && CONFERENCE=="+nexacro.wrapQuote(conference)+"  && ANNOUN_AREA_CD=="+nexacro.wrapQuote(announ_area_cd));
+		trace(nRow+"  "+announ_year	+"  "+conference	+"  "+announ_area_cd);
+		if(this.ds_Ccal.getColumn(nRow,+announ_year > 2023 ? "THREE_INS_YN" : "TWO_INS_YN")!="Y"){
+			this.gfn_showAlert("CRIA000061","논문등록 일정이 마감 되었습니다.");
+			return;
+		}
+
+		// 첨부 파일 확인 데이터가 1건이라도 있으면 삭제 불가 하다. (2024년 이후 초록 및 발표논문 무시)
+		if((+announ_year < 2024 && this.ds_PaperList.getColumn(0,"EXTRACT_CONF_YN")=='Y')
+			||this.ds_PaperList.getColumn(0,"PAPER_CONF_YN")=='Y'
+			||(+announ_year < 2024 && this.ds_PaperList.getColumn(0,"ANN_CONF_YN")=='Y')){	
+			this.gfn_showAlert("CRIM000003","이미 확인된 자료는 삭제 할 수 없습니다.\n\n관리자에게 문의 하시기 바랍니다.");
+			return;
+		} 
+	}
+	
+	var strMsgCode = "CRIA000039";										// message domain code
+	var strMsg = "현재 문서를 삭제하시겠습니까?";			// 대체 메시지
+
+	this.gfn_confirm(strMsgCode, strMsg, "", "", "", "confirm1", "fn_PopCallBack_Save");
+	
+	this.fn_PopCallBack_Save = function(sId, rtnVal){
+		if(!rtnVal) return;
+		
+		this.fn_delete_process();
+	}
+}	
+	
+this.fn_delete_process = function()
+{ 
+	this.tit_addSingleActionInfo("cri/ex:CRIACPAP_DEL_HIST_INS");		// 논문 삭제 
+			
+	var strParam= "SYS_CD="+nexacro.wrapQuote(this.fa_SysCode);
+	    strParam+=" PAPER_NO="+nexacro.wrapQuote(this.ds_PaperList.getColumn(0,"PAPER_NO"));		// 논문번호
+		strParam+=" CONFERENCE="+nexacro.wrapQuote(this.ds_PaperList.getColumn(0,"CONFERENCE"));
+		strParam+=" ATTC_FIL_ID="+nexacro.wrapQuote(this.ds_PaperList.getColumn(0,"PAPER_NO"));
+		
+	this.tit_callService(
+		this.fa_SysCode					// 시스템코드 및 Action 명
+		,""								// 메서드명
+		,"" 							// input 데이터셋
+		,"" 							// output 데이터셋
+		,strParam 						// 파라미터
+		,"fn_callback_ufn_Delete"		// 콜백펑션
+		,false							// 에러발생시 Callback 함수 호출 여부
+		,false							// 처리중입니다. 메시지 창 호출 여부
+	);
+}
+
+/*
+ * FUNCTION NAME	: fn_callback_ufn_Delete 
+ */
+this.fn_callback_ufn_Delete = function(ErrCode, ErrMsg)
+{
+
+	if(ErrCode < 0) {	
+		this.gfn_showMsg("ZCMA000006", "에러가 발생했습니다.");
+	}else{ 	
+		this.ufn_List();	// 삭제후 목록으로 이동.
+	}
+}
+
+/*
+ * FUNCTION NAME	: 리뷰등록
+ */
+this.btn_revw_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var strParam= "PAPER_NO="+nexacro.wrapQuote(this.ds_PaperList.getColumn(0,"PAPER_NO"));
+		strParam+= " MOD_SEQ="+nexacro.wrapQuote(this.ds_PaperList.getColumn(0,"MOD_SEQ"));
+		strParam+= " REVW_DESC="+nexacro.wrapQuote(this.ta_revw.value)
+		
+	this.tit_clearActionInfo();
+	this.tit_addSearchActionInfo("cri/ex:CRIEXE0011_INS"); //CRIAREVW
+	
+	this.tit_callService(
+		"CRI", 
+		"", 
+		"", 
+		"", 
+		strParam, 
+		"fn_callback_revw",
+		false,
+		false,
+		"insert"
+	);	
+	
+	/***********************************************************
+	 * 기능      : fn_callback_revw callback 함수
+	 ***********************************************************/
+	this.fn_callback_revw = function(ErrCode, ErrMsg)
+	{
+		if(ErrCode < 0) {	
+			this.gfn_showMsg("", ErrMsg);
+		} else {
+			this.gfn_usageRate(this.paperNo,"REVW"); 				//이용수 카운터
+			this.ta_revw.set_value("");
+			this.fn_revw_search();
+		}	
+	}
+}
+
+/*
+ * FUNCTION NAME	: 리뷰조회
+ */
+this.fn_revw_search = function()
+{
+	var strParam= "PAPER_NO="+nexacro.wrapQuote(this.paperNo);
+	
+	this.tit_clearActionInfo();
+	this.tit_addSearchActionInfo("cri/ex:CRIEXE0011_SEL02");
+	
+	this.tit_callService(
+		"CRI",
+		"",
+		"",
+		"ds_revw=ds_revw",
+		strParam,
+		"gfn_callback_revw_search",
+		false,
+		false,
+		"search"
+	);	
+
+	this.gfn_callback_revw_search = function(ErrCode, ErrMsg){	
+		if(ErrCode < 0) {
+			this.gfn_showMsg("ZCMA000006", "에러가 발생했습니다.");
+			return;
+		} else {
+			
+		}
+	}
+}
+
+this.grd_revw_oncellclick = function(obj:Grid, e:nexacro.GridClickEventInfo)
+{
+	var paper_no = this.ds_revw.getColumn(e.row,"PAPER_NO");
+	var seq = this.ds_revw.getColumn(e.row,"SEQ");
+	var reg_user_id = this.ds_revw.getColumn(e.row,"REG_USER_ID");
+	var readOnly = true;
+	
+	//작성자 또는 관리자는 수정권한 있음.
+	if(/*this.gfn_AdminRole()=="Y" || */application.GV_USER_ID == reg_user_id){
+		readOnly = false;		
+		this.popDiv_area.ta_text.set_readonly(false);
+	}else{
+		readOnly = true;		
+		this.popDiv_area.ta_text.set_readonly(true);
+	}
+	
+	if(e.cell==4){
+		this.fn_openTrackPopup(e.row,e.cell,"REVW_DESC");
+	}else if(readOnly==false && e.cell==6){	//작성자 또는 관리자만
+		this.fn_updateRevw(e.row);
+	}else if(readOnly==false && e.cell==7){	//작성자 또는 관리자만
+		this.fn_deleteRevw(e.row);
+	}else{}
+}
+
+this.fn_openTrackPopup = function(nRow,nCell,pop_col)
+{
+	var arrCellRect =  this.grd_revw.getCellRect(nRow,nCell);
+	var nX = arrCellRect.left;// + arrCellRect.width;
+	var nY = arrCellRect.top;// + arrCellRect.height-24;
+	
+	this.pop_row=nRow;
+	this.pop_col=pop_col;
+	this.popDiv_area.set_width(nexacro.toNumber(arrCellRect.width));
+	this.popDiv_area.ta_text.set_value(this.ds_revw.getColumn(nRow,this.pop_col));
+	this.popDiv_area.trackPopupByComponent(this.grd_revw, nX, nY,null,null,"trackPopup_callback");
+}
+
+/*************************************************************************************************
+ * FUNCTION NAME	: trackPopup_callback
+ * DESCRIPTION  	: 
+ * PARAMETER    	:
+ * RETURN 			:
+**************************************************************************************************/ 
+this.trackPopup_callback = function(closeId, closePopupVal)
+{ 
+	if (closeId == "popDiv_area") { // 연료구분
+		var strText = this.popDiv_area.ta_text.value;
+		this.ds_revw.setColumn(this.pop_row,this.pop_col,strText);
+	}
+}
+
+/*
+ * FUNCTION NAME	: fn_updateRevw 
+ */
+this.fn_updateRevw=function(eRow)
+{
+	var strParam= "PAPER_NO="+nexacro.wrapQuote(this.ds_revw.getColumn(eRow,"PAPER_NO"));
+		strParam+= " SEQ="+nexacro.wrapQuote(this.ds_revw.getColumn(eRow,"SEQ"));
+		strParam+= " REVW_DESC="+nexacro.wrapQuote(this.ds_revw.getColumn(eRow,"REVW_DESC"))
+		
+	this.tit_clearActionInfo();
+	this.tit_addSearchActionInfo("cri/ex:CRIEXE0011_INS"); //CRIAREVW
+	
+	this.tit_callService(
+		"CRI", 
+		"", 
+		"", 
+		"", 
+		strParam, 
+		"fn_callback_revw_upd",
+		false,
+		false,
+		"insert"
+	);	
+	
+	/***********************************************************
+	 * 기능      : fn_callback_revw_upd callback 함수
+	 ***********************************************************/
+	this.fn_callback_revw_upd = function(ErrCode, ErrMsg)
+	{
+		if(ErrCode < 0) {	
+			this.gfn_showMsg("", ErrMsg);
+		} else {
+			this.fn_revw_search();
+		}	
+	}
+}
+
+/*
+ * FUNCTION NAME	: fn_updateRevw 
+ */
+this.fn_deleteRevw=function(eRow)
+{
+	var strParam= "PAPER_NO="+nexacro.wrapQuote(this.ds_revw.getColumn(eRow,"PAPER_NO"));
+		strParam+= " SEQ="+nexacro.wrapQuote(this.ds_revw.getColumn(eRow,"SEQ"));
+		
+	this.tit_clearActionInfo();
+	this.tit_addSearchActionInfo("cri/ex:CRIEXE0011_DEL"); //CRIAREVW
+	
+	this.tit_callService(
+		"CRI", 
+		"", 
+		"", 
+		"", 
+		strParam, 
+		"fn_callback_revw_del",
+		false,
+		false,
+		"insert"
+	);	
+	
+	/***********************************************************
+	 * 기능      : fn_callback_revw_del callback 함수
+	 ***********************************************************/
+	this.fn_callback_revw_del = function(ErrCode, ErrMsg)
+	{
+		if(ErrCode < 0) {	
+			this.gfn_showMsg("", ErrMsg);
+		} else {
+			this.fn_revw_search();
+		}	
+	}
+}
+
+/*
+ * FUNCTION NAME	: Button_onclick
+ */
+ 
+this.Button_toggle_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var toggle_on = false;
+trace("toggle :: "+obj.name);
+	if(obj.name=="btn_mark_T"){
+		toggle_on=false;
+	}else{							//북마크 취소
+		toggle_on=true;
+	}
+
+	var strMsgCode = "";		// message domain code
+	var strMsg = "";			// 대체 메시지
+	
+	if(toggle_on == true){
+		strMsgCode="CRIM000075";
+		strMsg ="북마크 취소하겠습니까?";
+	}else{
+		strMsgCode="CRIM000074";
+		strMsg ="북마크 하겠습니까?";
+	}
+
+	this.gfn_confirm(strMsgCode, strMsg, "", "", "", "confirm1", "fn_PopCallBack_toggle");
+	
+	this.fn_PopCallBack_toggle = function(sId, rtnVal){
+		if(!rtnVal) return;
+		
+		if(obj.name=="btn_mark_T"){	//북마크 취소
+			this.btn_mark_F.set_visible(true);
+			this.btn_mark_T.set_visible(false);
+		}else{
+			this.btn_mark_T.set_visible(true);
+			this.btn_mark_F.set_visible(false);
+		}
+		
+		this.fn_mark_process();
+	}
+}
+	
+this.fn_mark_process = function()
+{
+	var strParam= "PAPER_NO="+nexacro.wrapQuote(this.ds_PaperList.getColumn(0,"PAPER_NO"));
+		
+	this.tit_clearActionInfo();
+	this.tit_addSearchActionInfo("cri/ex:CRIEXE0011_INS02"); //CRIAREVW
+	
+	this.tit_callService(
+		"CRI", 
+		"", 
+		"", 
+		"", 
+		strParam, 
+		"fn_callback_mark_toggle",
+		false,
+		false,
+		"insert"
+	);	
+	
+	/***********************************************************
+	 * 기능      : fn_callback_mark_toggle callback 함수
+	 ***********************************************************/
+	this.fn_callback_mark_toggle = function(ErrCode, ErrMsg)
+	{
+		if(ErrCode < 0) {	
+			this.gfn_showMsg("", ErrMsg);
+		} else {
+			// 북마크 추가에 대한 CLOG 등록
+			if (this.btn_mark_T.visible) {
+				this.ufn_insertClog(this.ds_PaperList.getColumn(0,"PAPER_NO"), "MARK");
+			}
+		}	
+	}
+}
+
+/*************************************************************************************************
+ * FUNCTION NAME	: ufn_insertClog
+ * DESCRIPTION  	: 활동 내역 등록 (행동당 한 번만)
+**************************************************************************************************/
+this.ufn_insertClog = function(paperNo, rateKind)
+{
+	// 로그는 화면당 한 번만 기록
+	if (this.ufn_insertClog.SUCCESS && this.ufn_insertClog.SUCCESS.indexOf(rateKind) > -1) return;
+	
+	this.tit_clearActionInfo();
+
+	this.tit_addSingleActionInfo("cri/com:CRI_USAGE_RATE_INS"); 
+	
+	var strIntDs = "";
+	var strOutDs = "";        
+		
+	var strParam = "PAPER_NO=" + nexacro.wrapQuote(paperNo);
+		strParam += " RATE_KIND=" + nexacro.wrapQuote(rateKind);
+
+	this.tit_callService(
+		"CRI"					// 시스템코드 및 Action 명
+		,""						// 메서드명
+		,strIntDs 				// input 데이터셋
+		,strOutDs 				// output 데이터셋
+		,strParam 				// 파라미터
+		,"fn_callback_ufn_insertClog"	// 콜백펑션
+		,false					// 에러발생시 Callback 함수 호출 여부
+		,false
+		,"insert"
+		,false
+	);
+	
+	/***********************************************************
+	 * 기능      : fn_callback_ufn_insertClog
+	 ***********************************************************/
+	this.fn_callback_ufn_insertClog = function(ErrCode, ErrMsg)
+	{
+		if(ErrCode < 0) {	
+			this.gfn_showMsg("", ErrMsg);
+		} else {
+			// 로그는 한번만 기록
+			if (!this.ufn_insertClog.SUCCESS) {
+				this.ufn_insertClog.SUCCESS = [rateKind];
+			} else if(this.ufn_insertClog.SUCCESS.indexOf(rateKind) < 0) {
+				this.ufn_insertClog.SUCCESS.push(rateKind);
+			}
+		}
+	}
+	
+}
+
+
+/*
+ * FUNCTION NAME	: 북마크조회
+ */
+this.fn_mark_search = function()
+{
+	var strParam= "PAPER_NO="+nexacro.wrapQuote(this.paperNo);
+	
+	this.tit_clearActionInfo();
+	this.tit_addSearchActionInfo("cri/ex:CRIEXE0011_SEL03");
+	
+	this.tit_callService(
+		"CRI",
+		"",
+		"",
+		"ds_mark=ds_mark",
+		strParam,
+		"gfn_callback_revw_search",
+		false,
+		false,
+		"search"
+	);	
+
+	this.gfn_callback_revw_search = function(ErrCode, ErrMsg){	
+		if(ErrCode < 0) {
+			this.gfn_showMsg("ZCMA000006", "에러가 발생했습니다.");
+			return;
+		} else {
+			if(this.ds_mark.rowcount==0){
+				this.btn_mark_F.set_visible(true);
+				this.btn_mark_T.set_visible(false);
+			}else{
+				this.btn_mark_T.set_visible(true);
+				this.btn_mark_F.set_visible(false);
+			}
+		}
+	}
+}
+this.dv_TopIcon_btn_apprHis_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+
+	var strArgs = "";
+		strArgs = {	DOC_ID:this.ds_PaperList.getColumn(0,"PAPER_NO")
+				  };
+		// DOC_ID:this.ds_PaperList.getColumn(0,"DOCUMENT_ID") 	
+			
+	this.gfn_openPopup("CRIPXE0002", "sys_CRI::CRIPXE0002.xfdl", strArgs, "autosize=true,modeless=false,resizable=false", "", "");
+}
+
+
+this.fn_AfterDownFile = function()
+{
+	this.gfn_usageRate(this.paperNo,"DOWN"); 				//이용수 카운터
+}
+
+this.dv_TopIcon_btn_cancelApp_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var userID= this.ds_PaperList.getColumn(0,"ANNOUN_USER_ID");  
+	var doc_id ="";
+	var announYn = this.ds_PaperList.getColumn(0,"ANNOUN_YN");  
+	
+	//논문, 발표논문인지 확인
+	if(this.ds_PaperList.getColumn(0,"APPROVAL_STATE2") == "S"){
+		doc_id = this.ds_PaperList.getColumn(0, "DOCUMENT_ID2");
+	}else if(this.ds_PaperList.getColumn(0,"APPROVAL_STATE") == "S"){
+		doc_id = this.ds_PaperList.getColumn(0, "DOCUMENT_ID");
+	}
+
+	if(["A", "Y"].indexOf(announYn) > -1){
+	}else{
+ 		this.gfn_showAlert("CRIA000067","등록자만 삭제할수있습니다.");
+ 		return;	
+	} 
+	 
+	var param = "APPRV_DOC_ID="+nexacro.wrapQuote(doc_id);	
+	 
+	 trace(doc_id);
+	
+	this.tit_clearActionInfo();
+	this.tit_addSearchActionInfo("cri/com:ZCMARDSH_APPCANCLE_CHK_SEL");
+	
+	this.tit_callService(
+		"CRI"
+		,""
+		,""
+		,"ds_app_cancle=ds_app_cancle"
+		,param
+		,"fn_callback_appCancle_chk"
+		,false
+		,false
+		,"search"
+		,false
+	);	
+	
+	this.fn_callback_appCancle_chk = function(ErrCode, ErrMsg)
+	{
+		if(ErrCode < 0) {
+			this.gfn_showMsg("ZCMA000006", "에러가 발생했습니다.");
+		} 
+		else {	
+			var appCancle_chk = this.gfn_decode(this.ds_app_cancle.getColumn(0,"APPROVAL_STATE"),"S",true,false);
+			if(!appCancle_chk){
+				this.gfn_showAlert("CNTNM00045","이미 다음 결재가 진행되었습니다.\n상신 취소할 수 없습니다.");
+				return false;
+			}
+			var strMsgCode = "CNTNM00046";
+			var strMsg = "상신 취소하시겠습니까?";
+			this.gfn_confirm("", strMsg , "", "", "","confirm_appr", "fn_PopcallBack_c_appr");
+		}
+	}
+}
+
+
+this.fn_PopcallBack_c_appr = function(sId, rtnVal)
+{
+	if(!rtnVal){
+		return;
+	}
+	
+	var doc_id ="";	
+	//논문, 발표논문인지 확인
+	if(this.ds_PaperList.getColumn(0,"APPROVAL_STATE2") == "S"){
+		doc_id = this.ds_PaperList.getColumn(0, "DOCUMENT_ID2");
+	}else if(this.ds_PaperList.getColumn(0,"APPROVAL_STATE") == "S"){
+		doc_id = this.ds_PaperList.getColumn(0, "DOCUMENT_ID");
+	}
+	
+	var param = "APPRV_DOC_ID="+nexacro.wrapQuote(doc_id);
+	
+	this.ds_AppHeader.clearData();
+	this.ds_AppHeader.insertRow(0);
+	this.ds_AppHeader.setColumn(0,"DOCUMENT_ID",doc_id);
+	this.ds_AppHeader.setColumn(0,"EMP_NO",this.ds_PaperList.getColumn(0,"ANNOUN_USER_ID"));
+	
+	//상신 취소
+	this.tit_clearActionInfo();
+	this.tit_callService(
+			"CRIApprovalAction", 
+			"approvalCancel", 
+			"ds_AppHeader=ds_AppHeader", 
+			"", 
+			"", 		
+			"fn_callback_cancle_action",
+			false,
+			false,
+			"insert"
+	);
+}
+this.fn_callback_cancle_action = function(ErrCode, ErrMsg)
+{
+	if(ErrCode < 0) {
+		this.gfn_showMsg("ZCMA000006", "에러가 발생했습니다.");
+	} 
+	else {	
+		this.gfn_alert("", "상신취소 처리 되었습니다.", "", "", "", "", "fn_CallBack_AlertApp");	
+	}
+}
+
+/*******************************************************************************************************************************************************************
+* CallBack Function : fn_CallBack_AlertApp
+*******************************************************************************************************************************************************************/
+this.fn_CallBack_AlertApp = function()
+{
+	this.ufn_Common();
+}
+
+this.dv_TopIcon_btn_share_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	this.ds_PaperList.setColumn(0,"CONFERENCE_NM",this.cbo_conference.text);
+	
+	var strArgs = {
+				  };
+			
+	this.gfn_openPopup("CRIPXE0004", "sys_CRI::CRIPXE0004.xfdl", strArgs, "autosize=true,modeless=false,resizable=false", "fn_popupShareMail", "");
+}
+
+this.fn_popupShareMail = function(popId,rtn)
+{
+	var popupRtn = this.gfn_getPopupRtn();
+
+	if (this.gfn_isNull(popupRtn)) return;
+}
+
+
+this.dv_TopIcon_btn_his_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var strArgs = "";
+		strArgs = { fa_PaperNo:this.paperNo
+				  };
+			
+	this.gfn_openPopup("CRIPXE0006", "sys_CRI::CRIPXE0006.xfdl", strArgs, "autosize=true,modeless=false,resizable=false", "fn_popupHis", "");
+}
+// 
+// this.Button00_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+// {
+// 	this.dv_TopIcon.btn_Upd.set_enable(true);
+// }
+
+
+//결재상신
+this.dv_TopIcon_btn_appr_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	trace(this.twoThreeCD);
+	
+	var paper_Nm= this.ds_PaperList.getColumn(0,"PAPER_NM");
+	
+	if(this.gfn_isNull(paper_Nm)) {
+		this.gfn_alert("", "논문명을 기입해주세요."); 
+		return ;	
+	}
+	
+	var strArgs = {appr_gubun : this.twoThreeCD};
+	 
+
+	this.gfn_openPopup("apprPopup", "sys_CRI::CRIPXE0003.xfdl", strArgs, "", "fn_popupApprCallback", "");
+	
+	/**************************************************************
+	 * FUNCTION NAME	: fn_popupApprCallback
+	 **************************************************************/
+	this.fn_popupApprCallback = function(sId, rtnVal) 
+	{
+		if(rtnVal == "S") {
+			this.fn_reload();
+		}
+	}	
+}
+this.fn_reload = function(){  
+		
+		this.fn_open_close("CRI_CRIEXE0012_");
+		this.gfn_setParam("STATE","R");
+		this.gfn_setParam("ANNOUN_YEAR",this.ds_PaperList.getColumn(0,"ANNOUN_YEAR"));
+		this.gfn_setParam("PAPER_NO",this.ds_PaperList.getColumn(0,"PAPER_NO"));
+		this.gfn_setParam("MOD_SEQ",this.ds_PaperList.getColumn(0,"MOD_SEQ"));
+		this.gfn_setParam("PAPER_SCN_CD",this.CONST_CRI_PAPER_SCN_CD_RND);
+		this.gfn_setParam("FORM_ID","CRIEXE0012");
+	
+//	this.gfn_CommonDs("ds_ComCd_CRI0001","CRI0001","Z");	// 공통코드를 가져온다. - 논문구분 코드(CRI0001)
+//	this.gfn_CommonDs("ds_ComCd_CRI0003","CRI0003","Z");	// 공통코드를 가져온다. - 학술대회 일정 구분 코드(CRI0003)
+//	this.ds_ComCd_CRI0001.filter("COM_CD=='01' || COM_CD=='02'");
+//	this.ra_paperGbn.set_value("01");
+	
+	//this.gfn_setFileAuth();
+	
+	//this.gfn_openMenu("CRIEXE0012","CRIEXE0012","논문 상세화면","sys_CRI::"+"CRIEXE0012"+".xfdl","CRI","","","W","","","","","","","","",this.getOwnerFrame().fa_MenuOrgID);
+	this.form.close();
+	
+		
+}
+ 
+ 
+ //결과조회
+this.dv_TopIcon_btn_result_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var strArgs = { 
+ 		V_PAPER_NO: this.ds_PaperList.getColumn(0, "PAPER_NO") ,				//논문번호
+ 		V_MOD_SEQ: this.ds_PaperList.getColumn(0, "MOD_SEQ")  
+	};
+	this.gfn_openPopup("CRIPCM0040", "sys_CRI::CRIPCM0040.xfdl", strArgs, "autosize=true,modeless=false,resizable=false", "fn_popupAfterCallPOP", "");
+	
+	 
+}
+
+this.dv_TopIcon_btn_revw_onclick = function(obj:Button,  e:nexacro.ClickEventInfo)
+{
+	var strArgs = { 
+ 		PAPER_NO: this.ds_PaperList.getColumn(0, "PAPER_NO"),				//논문번호
+ 		SIDE_SCN_CD: "2"													//사내외구분
+	};
+	this.gfn_openPopup("CRIPDM0012", "sys_CRI::CRIPDM0012.xfdl", strArgs, "autosize=true,modeless=false,resizable=false", "", "");
+}
+]]></Script>
+  </Form>
+</FDL>
