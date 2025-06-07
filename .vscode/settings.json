@@ -17,7 +17,7 @@
     위치: /data/user-data/User/setting.json
   */
   "window.zoomLevel": 1,
-  
+
   /*
     workbench 관련 설정은 프로젝트 .vscode/setting.json 에서는 정상 작동하지 않음.
     다른 파일에 설정해야 함.
@@ -60,8 +60,8 @@
     "**/build": true
   },
   "editor.minimap.enabled": false,
-  
-  
+
+
   "editor.tabSize": 2,
   "editor.insertSpaces": true,
   "editor.fontFamily": "나눔고딕코딩",
@@ -79,9 +79,7 @@
   "editor.renderWhitespace": "all",
   "editor.detectIndentation": false,
   "editor.codeActionsOnSave": {
-    // For ESLint
-    //"source.fixAll.eslint": true,
-    "source.fixAll": true
+    "source.fixAll": "explicit"
   },
   "javascript.updateImportsOnFileMove.enabled": "always",
   "diffEditor.ignoreTrimWhitespace": false,
